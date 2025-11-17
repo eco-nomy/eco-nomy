@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.resp-link a {
+    @apply text-blue-500 hover:text-blue-700;
+}
+
+.acesso-items a {
+@apply hover:underline text-center
+}
+
+.menu-aberto a {
+@apply px-4 py-2 rounded-md bg-[#194737] hover:bg-[#29966a] transition
+}
+
+.menu-dropdown a {
+@apply block px-4 py-2 rounded hover:bg-[#76b99d] hover:text-white transition
+}
+
+main{
+    @apply text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl
+}
