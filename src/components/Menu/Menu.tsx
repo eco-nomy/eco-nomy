@@ -45,7 +45,9 @@ export default function Menu() {
                         <Link to="/integrantes" className="hover:text-[#2e7c10] transition">Integrantes</Link>
                         <Link to="/sobre" className="hover:text-[#2e7c10] transition">Sobre</Link>
                         <Link to="/perguntas" className="hover:text-[#2e7c10] transition">Perguntas (FAQ)</Link>
+                        <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub De Colaboração</Link>
                         <Link to="/trabalhos" className="hover:text-[#2e7c10] transition">Trabalhos</Link>
+                        <Link to="/contratacao" className="hover:text-[#2e7c10] transition">Vagas</Link>
                         <Link to="/contato" className="hover:text-[#2e7c10] transition">Contato</Link>
                     </nav>
                 </div>
@@ -56,7 +58,9 @@ export default function Menu() {
                 <Link to="/integrantes" className="hover:text-[#2e7c10] transition">Integrantes</Link>
                 <Link to="/sobre" className="hover:text-[#2e7c10] transition">Sobre</Link>
                 <Link to="/perguntas" className="hover:text-[#2e7c10] transition">Perguntas (FAQ)</Link>
+                <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub De Colaboração</Link>
                 <Link to="/trabalhos" className="hover:text-[#2e7c10] transition">Trabalhos</Link>
+                <Link to="/contratacao" className="hover:text-[#2e7c10] transition">Vagas</Link>
                 <Link to="/contato" className="hover:text-[#2e7c10] transition">Contato</Link>
             </div>
         </div>
