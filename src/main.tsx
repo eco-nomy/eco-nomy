@@ -9,6 +9,7 @@ import Perguntas from './routes/Perguntas/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
 import Trabalhos from './routes/Trabalhos/index.tsx'
 import Contratacao from './routes/Contratacao/index.tsx'
+import Hub from './routes/Hub/index.tsx'
 import Contato from './routes/Contato/index.tsx'
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     {path:"/integrantes", element:<Integrantes/>},
     {path:"/trabalhos", element:<Trabalhos/>},
     {path:"/contratacao", element:<Contratacao/>},
+    {path:"/hub", element:<Hub/>},
     {path:"/contato", element:<Contato/>}
   ]}
 ])
