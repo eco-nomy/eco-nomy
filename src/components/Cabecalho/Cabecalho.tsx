@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Menu from '../Menu/Menu'
 
 export default function Cabecalho() {
   return(
@@ -28,6 +29,7 @@ export default function Cabecalho() {
         <div className="flex items-center space-x-2">
           <Link to="/"><img src={} className="" alt="" /></Link>           
         <div/>
+        <Menu />
       <div/>
 
     </header>
