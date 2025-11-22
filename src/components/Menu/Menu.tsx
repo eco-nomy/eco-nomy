@@ -6,6 +6,7 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
   useEffect(() => {
     setIsOpen(false);
   }, [location])
@@ -32,10 +33,11 @@ export default function Menu() {
   return(
       <div className="relative" ref={dropdownRef}>
         <button onClick={
-          ()=> setIsOpen(!isOpen) 
-        }>
+          ()=> setIsOpen(!isOpen)}
+          className="lg:hidden z-50 transition">
           Menu
         <button/>
+
         {isOpen && (
           <div className="lg:hidden absolute right-0 menu-dropdown">
             <nav className="">
@@ -48,6 +50,7 @@ export default function Menu() {
             </nav>
           </div>
         )}
+
         <div className="hidden lg:flex menu-aberto">
           <Link to="/">Home</Link>
           <Link to="/integrantes">Integrantes</Link>
