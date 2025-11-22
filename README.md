@@ -17,6 +17,7 @@ Versão beta disponível (MVP)
 - [Autores e Créditos](#-autores-e-créditos)
 - [Screenshots / Demonstração](#-screenshots--demonstração)
 - [Contato](#-contato)
+- [Aviso](#-aviso)
 
 ## Sobre o Projeto
  
@@ -99,3 +100,8 @@ Victor Sabelli Rocha Batista
 
 Vinicius Soteras Braga
 <img src="/src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+## Aviso
+
+Devido a limitações de hospedagem, nossos modelos de Machine Learning não estão publicados online.  
+No entanto, eles podem ser consultados e testados diretamente neste repositório: https://github.com/eco-nomy/artificial-intelligence
