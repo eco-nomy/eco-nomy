@@ -1,37 +1,45 @@
-import { Link } from 'react-router-dom'
-import Menu from '../Menu/Menu'
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import Menu from '../Menu/Menu';
+import logo from '../../img/logo.png';
+import login from '../../img/icone/login.png'
+import { ThemeContext } from '../../context/ThemeContext';
 
 export default function Cabecalho() {
-  return(
-    <header>
-      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center p-2'>
-        <div className='flex justify-center'>
-          <p className='flex items-center gap-1'>
-            <img src={} className='w-4 h-4' alt="ícone email" />
-            economy@gmail.com
-          </p>
-        </div>
-      </div>
+    const { theme, toggleTheme } = useContext(ThemeContext)!;
 
-      <div className='flex justify-center gap-2'>
-        <p className='flex items-center gap-1'>
-          <img src={} className='w-3 h-3' alt="ícone telefone" />
-          11 4444-4444
-        <p/>
-        <p className='flex items-center gap-1'>
-          <img src={} className='w-3 h-3' alt="ícone whatsapp" />
-          11 9 9999-9999
-        <p/>
-      </div> 
+    return (
+        <header className="bg-[var(--c-bg)] text-[var(--c-text)] shadow-md transition">
 
-       
-      <div className='flex'>
-        <div className="flex items-center space-x-2">
-          <Link to="/"><img src={} className="" alt="" /></Link>           
-        <div/>
-        <Menu />
-      <div/>
+            <div className="bg-[var(--c-primary)] text-white flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-2 text-sm">
 
-    </header>
-  )
+                <div className="flex justify-center">
+                    <p className="flex items-center gap-1">economy@email.com</p>
+                </div>
+
+                <div className="flex justify-center gap-4 mt-2 sm:mt-0">
+                    <p className="flex items-center gap-1">11 4444-4444</p>
+                    <p className="flex items-center gap-1">11 9 9999-9999</p>
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between px-6 py-4">
+                <div className="flex items-center space-x-2">
+                    <Link to="/login"><img src={login} className="w-13 h-auto mt-3" alt="Icone Login" /></Link>
+                    <Link to="/"><img src={logo} alt="Logo Eco-nomy" className="w-30 h-auto" /></Link>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <Menu />
+
+                    <button
+                        onClick={toggleTheme}
+                        className="cursor-pointer px-3 py-2 rounded-lg shadow bg-[var(--c-primary)] text-white hover:bg-[var(--c-primary-light)] transition"
+                    >
+                        {theme === "light" ? "🌙" : "☀️"}
+                    </button>
+                </div>
+            </div>
+        </header>
+    );
 }
