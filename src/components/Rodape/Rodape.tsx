@@ -14,6 +14,7 @@ export default function Rodape() {
 
           <div>
             <h1>
+              Redes Sociais
             <h1/>
             <div>
             <div/>
@@ -22,10 +23,10 @@ export default function Rodape() {
           <div>
           
             <h1>
-              
+             Atendimento 
             <h1/>
             <p>
-
+            Fale conosco por e-mail ou telefone!
             <p/>
             
           <div/>
