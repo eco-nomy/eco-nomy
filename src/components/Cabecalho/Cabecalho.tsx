@@ -5,6 +5,7 @@ export default function Cabecalho() {
         <div>
           <p>
             <img src={}/>
+            economy@gmail.com
           </p>
         </div>
       </div>
