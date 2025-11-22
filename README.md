@@ -55,3 +55,17 @@ INSERIR LINK DA VERCEL
 ## Estrutura de Pastas
 
 `utilizar tree`
+
+## Rotas Principais
+
+- "/"
+- "/sobre"
+- "/perguntas"
+- "/integrantes"
+- "/trabalhos"
+- "/contratacao"
+- "/hub"
+- "/contato"
+- "/trabalhadores"
+- "/empresas"
+- "/login"
