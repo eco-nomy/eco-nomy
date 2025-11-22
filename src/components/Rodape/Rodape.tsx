@@ -1,22 +1,23 @@
 import AcessoRapido from '../AcessoRapido/AcessoRapido'
+
 export default function Rodape() {
  return(
-    <footer>
-      <div>
-        <div>
+    <footer style={{ backgroundColor: '#194737' }} className="text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="">
 
           <div>
-            <h1>  
+            <h1 className="">  
             Acesso Rápido
             <h1/>
             <AcessoRapido />
           <div/>
 
           <div>
-            <h1>
+            <h1 className="">
               Redes Sociais
             <h1/>
-            <div>
+            <div className="">
             <div/>
           <div/>
 
@@ -51,7 +52,7 @@ export default function Rodape() {
           <div/>
         <div/>
         
-        <p>
+        <p className="">
           &copy; Todos os direitos reservados - Eco-nomy - 2025
         <p/>
       <div/>
