@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {useLocation } from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
 
@@ -36,6 +36,18 @@ export default function Menu() {
         }>
           Menu
         <button/>
+        {isOpen && (
+          <div className="lg:hidden absolute right-0 menu-dropdown">
+            <nav className="">
+              <Link to="/">Home</Link>
+              <Link to="/integrantes">Integrantes</Link>
+              <Link to="/sobre">Sobre</Link>
+              <Link to="/perguntas-frequentes">Perguntas(FAQ)</Link>
+              <Link to="/trabalhos">Trabalhos</Link>
+              <Link to="/contato">Contato</Link>
+            </nav>
+          </div>
+              )}
       <div/>
   )
 }
