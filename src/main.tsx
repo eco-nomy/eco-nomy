@@ -12,7 +12,9 @@ import Contratacao from './routes/Contratacao/index.tsx'
 import Hub from './routes/Hub/index.tsx'
 import Contato from './routes/Contato/index.tsx'
 import Login from './routes/Login/index.tsx'
+import Trabalhadores from './routes/Trabalhadores/index.tsx'
 import { ThemeProvider } from './context/ThemeContext'
+import Empresas from './routes/Empresas/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       { path: "/contratacao", element: <Contratacao /> },
       { path: "/hub", element: <Hub /> },
       { path: "/contato", element: <Contato /> },
+      { path: "/Trabalhadores", element: <Trabalhadores /> },
+      { path: "/empresas", element: <Empresas /> },
       { path: "/login", element: <Login /> }
     ]
   }
