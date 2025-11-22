@@ -1,3 +1,4 @@
+import AcessoRapido from '../AcessoRapido/AcessoRapido'
 export default function Rodape() {
  return(
     <footer>
@@ -5,9 +6,10 @@ export default function Rodape() {
         <div>
 
           <div>
-            <h1>
-              
+            <h1>  
+            Acesso Rápido
             <h1/>
+            <AcessoRapido />
           <div/>
 
           <div>
@@ -27,7 +29,6 @@ export default function Rodape() {
             <p/>
             
           <div/>
-
         <div/>
         
         <p>
