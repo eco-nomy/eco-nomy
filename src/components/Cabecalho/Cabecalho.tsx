@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Cabecalho() {
   return(
     <header>
@@ -10,21 +12,21 @@ export default function Cabecalho() {
         </div>
       </div>
 
-    <div>
-      <p>
-        <img src={}/>
-      <p/>
-      <p>
-        <img src={}/>
-      <p/>
-    </div> 
-
-     
-    <div>
       <div>
-        
+        <p>
+          <img src={}/>
+        <p/>
+        <p>
+          <img src={}/>
+        <p/>
+      </div> 
+
+       
+      <div>
+        <div>
+          <Link to="/"><img src={} className="" alt="" /></Link>           
+        <div/>
       <div/>
-    <div/>
 
     </header>
   )
