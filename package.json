@@ -14,7 +14,8 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.66.0",
-    "react-router-dom": "^7.9.5"
+    "react-router-dom": "^7.9.5",
+    "vercel": "^48.10.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
