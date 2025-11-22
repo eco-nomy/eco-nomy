@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+# Eco-nomy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Somos um marketplace inteligente e acessível que une segurança, transparência e sustentabilidade.
 
-Currently, two official plugins are available:
+## Status do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Versão beta disponível (MVP)
 
-## React Compiler
+## 📚 Sumário
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Instalação](#-instalação)
+- [Como Usar](#-como-usar)
+- [Estrutura de Pastas](#-estrutura-de-pastas)
+- [Rotas Principais](#-rotas-principais)
+- [Endpoints](#-endpoints)
+- [Autores e Créditos](#-autores-e-créditos)
+- [Screenshots / Demonstração](#-screenshots--demonstração)
+- [Contato](#-contato)
+- [Aviso](#-aviso)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Sobre o Projeto
+ 
+Oferecemos uma área para contratação de serviços por demanda com pagamentos via Escrow Digital, vagas formais na Economia Verde e um Hub de Colaboração para empresas.
+Utilizamos Inteligência Artificial para calcular preços justos e avaliar possibilidade de fraude, garantindo confiança e justiça nas relações entre contratantes e prestadores de serviços.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="30" alt="HTML5"/> **HTML5**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="30" alt="CSS3"/> **CSS3**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="30" alt="JavaScript"/> **JavaScript**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="30" alt="Git"/> **Git**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="30" alt="GitHub"/> **GitHub**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="30" alt="React"/> **React**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" width="30" alt="Vite"/> **Vite**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="30" alt="TypeScript"/> **TypeScript**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="30" alt="Tailwind CSS"/> **Tailwind CSS**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="Java"/> **Java**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="30" alt="Vercel"/> **Vercel**
+- <img src="./src/img/icones/render.png" width="30" alt="Render"/> **Render**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="30" alt="Postman"/> **Postman**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Instalação
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1º Acesse o Repositório: https://github.com/eco-nomy/eco-nomy
+2º Clique em `<> CODE`, escolha a opção `HTTPS` e copie o URL
+3º Abra o Git Bash e cole o comando `git clone https://github.com/eco-nomy/eco-nomy.git`
+4º Digite `cd eco-nomy`
+5º Instale as dependências com `npm i` ou `npm install`
+6º Execute `npm run dev`
+7º Acesse o link http://localhost:5173/
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Como Usar
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+INSERIR LINK DA VERCEL
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Estrutura de Pastas
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+`utilizar tree`
+
+## Rotas Principais
+
+- "/"
+- "/sobre"
+- "/perguntas"
+- "/integrantes"
+- "/trabalhos"
+- "/contratacao"
+- "/hub"
+- "/contato"
+- "/trabalhadores"
+- "/empresas"
+- "/login"
+
+## Endpoints
+
+`adicionar endpoints da API`
+
+## Autores e Créditos
+
+não sei oq inserir
+
+## Screenshots / Demonstração
+
+link youtube
+
+## Contato
+
+| Nome                | RM       | Turma   | GitHub                                       | LinkedIn                                     |
+|---------------------|----------|---------|----------------------------------------------|----------------------------------------------|
+| Rafael Kubagawa Ramos      | RM565572 | 1TDSPO   | [@Rafaelkubagawa](https://github.com/Rafaelkubagawa) | [Rafael Kubagawa](https://www.linkedin.com/in/rafael-kubagawa-ramos-243896330)     |
+| Victor Sabelli Rocha Batista         | RM566224 | 1TDSPO   | [@Sabelli](https://github.com/Sabelli)   | [Victor Sabelli](https://www.linkedin.com/in/victorsabelli/)    |
+| Vinicius Soteras Braga       | RM566230 | 1TDSPO   | [@BragaSoterasVinicius](https://github.com/BragaSoterasVinicius) | [Vinicius Soteras](https://www.linkedin.com/in/vinicius-soteras-braga-60335516a/) |
+
+Rafael Kubagawa Ramos
+<img src="/src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="60"/>
+
+Victor Sabelli Rocha Batista
+<img src="/src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+Vinicius Soteras Braga
+<img src="/src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+## Aviso
+
+Devido a limitações de hospedagem, nossos modelos de Machine Learning não estão publicados online.  
+No entanto, eles podem ser consultados e testados diretamente neste repositório: https://github.com/eco-nomy/artificial-intelligence
