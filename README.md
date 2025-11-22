@@ -74,3 +74,11 @@ INSERIR LINK DA VERCEL
 ## Endpoints
 
 `adicionar endpoints da API`
+
+## Autores e Créditos
+
+não sei oq inserir
+
+## Screenshots / Demonstração
+
+link youtube
