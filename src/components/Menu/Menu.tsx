@@ -47,7 +47,15 @@ export default function Menu() {
               <Link to="/contato">Contato</Link>
             </nav>
           </div>
-              )}
+        )}
+        <div className="hidden lg:flex menu-aberto">
+          <Link to="/">Home</Link>
+          <Link to="/integrantes">Integrantes</Link>
+          <Link to="/sobre">Sobre</Link>
+          <Link to="/perguntas-frequentes">Perguntas(FAQ)</Link>
+          <Link to="/trabalhos">Trabalhos</Link>
+          <Link to="/contato">Contato</Link>
+        </div>      
       <div/>
-  )
+  );
 }
