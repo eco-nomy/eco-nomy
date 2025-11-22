@@ -31,7 +31,7 @@ export default function Rodape() {
         <div/>
         
         <p>
-            
+          &copy; Todos os direitos reservados - Eco-nomy - 2025
         <p/>
       <div/>
     <footer/>
