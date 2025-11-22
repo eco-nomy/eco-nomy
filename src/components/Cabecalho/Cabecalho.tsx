@@ -12,20 +12,20 @@ export default function Cabecalho() {
         </div>
       </div>
 
-      <div>
-        <p>
-          <img src={}/>
+      <div className='flex justify-center gap-2'>
+        <p className='flex items-center gap-1'>
+          <img src={} className='w-3 h-3' alt="ícone telefone" />
           11 4444-4444
         <p/>
-        <p>
-          <img src={}/>
+        <p className='flex items-center gap-1'>
+          <img src={} className='w-3 h-3' alt="ícone whatsapp" />
           11 9 9999-9999
         <p/>
       </div> 
 
        
-      <div>
-        <div>
+      <div className='flex'>
+        <div className="flex items-center space-x-2">
           <Link to="/"><img src={} className="" alt="" /></Link>           
         <div/>
       <div/>
