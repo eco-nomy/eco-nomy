@@ -7,17 +7,18 @@ Somos um marketplace inteligente e acessível que une segurança, transparência
 Versão beta disponível (MVP)
 
 ## 📚 Sumário
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Instalação](#-instalação)
-- [Como Usar](#-como-usar)
-- [Estrutura de Pastas](#-estrutura-de-pastas)
-- [Rotas Principais](#-rotas-principais)
-- [Endpoints](#-endpoints)
-- [Autores e Créditos](#-autores-e-créditos)
-- [Screenshots / Demonstração](#-screenshots--demonstração)
-- [Contato](#-contato)
-- [Aviso](#-aviso)
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Como Usar](#como-usar)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Rotas Principais](#rotas-principais)
+- [Endpoints](#endpoints)
+- [Autores e Créditos](#autores-e-créditos)
+- [Screenshots / Demonstração](#screenshots--demonstração)
+- [Contato](#contato)
+- [Fotos](#-fotos)
+- [Aviso](#aviso)
 
 ## Sobre o Projeto
  
@@ -91,6 +92,8 @@ link youtube
 | Rafael Kubagawa Ramos      | RM565572 | 1TDSPO   | [@Rafaelkubagawa](https://github.com/Rafaelkubagawa) | [Rafael Kubagawa](https://www.linkedin.com/in/rafael-kubagawa-ramos-243896330)     |
 | Victor Sabelli Rocha Batista         | RM566224 | 1TDSPO   | [@Sabelli](https://github.com/Sabelli)   | [Victor Sabelli](https://www.linkedin.com/in/victorsabelli/)    |
 | Vinicius Soteras Braga       | RM566230 | 1TDSPO   | [@BragaSoterasVinicius](https://github.com/BragaSoterasVinicius) | [Vinicius Soteras](https://www.linkedin.com/in/vinicius-soteras-braga-60335516a/) |
+
+## Fotos
 
 Rafael Kubagawa Ramos
 <img src="/src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="60"/>
