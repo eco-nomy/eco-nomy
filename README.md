@@ -12,7 +12,8 @@ Versão beta disponível (MVP)
 - [Instalação](#-instalação)
 - [Como Usar](#-como-usar)
 - [Estrutura de Pastas](#-estrutura-de-pastas)
-- [Endpoints ou Rotas Principais](#-endpoints-ou-rotas-principais)
+- [Rotas Principais](#-rotas-principais)
+- [Endpoints](#-endpoints)
 - [Autores e Créditos](#-autores-e-créditos)
 - [Screenshots / Demonstração](#-screenshots--demonstração)
 - [Contato](#-contato)
@@ -69,3 +70,7 @@ INSERIR LINK DA VERCEL
 - "/trabalhadores"
 - "/empresas"
 - "/login"
+
+## Endpoints
+
+`adicionar endpoints da API`
