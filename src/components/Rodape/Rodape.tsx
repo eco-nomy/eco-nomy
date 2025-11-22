@@ -28,7 +28,26 @@ export default function Rodape() {
             <p>
             Fale conosco por e-mail ou telefone!
             <p/>
-            
+            <ul className="">
+              <li>
+                <p className="">
+                  <img src={} alt="Ícone de Email" className="" />
+                  economy@email.com
+                </p>
+              </li>
+              <li>
+                <p className="">
+                  <img src={} alt="Ícone de Telefone" className="" />
+                  11 4444-4444
+                </p>
+              </li>
+              <li>
+                <p className="">
+                  <img src={} alt="Ícone do WhatsApp" className="" />
+                  11 9 9999-9999
+                </p>
+              </li>
+            </ul>
           <div/>
         <div/>
         
