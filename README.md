@@ -37,7 +37,7 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="30" alt="Tailwind CSS"/> **Tailwind CSS**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="Java"/> **Java**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="30" alt="Vercel"/> **Vercel**
-- <img src="./src/img/icone/render.png" width="30" alt="Render"/> **Render**
+- <img src="/src/img/icone/render.png" width="30" alt="Render"/> **Render**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="30" alt="Postman"/> **Postman**
 
 ## Instalação
