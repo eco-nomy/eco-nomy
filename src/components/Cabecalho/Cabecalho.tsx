@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Menu from '../Menu/Menu'
+import logo from '../../img/logo.png'
 
 export default function Cabecalho() {
     return (
@@ -27,7 +28,7 @@ export default function Cabecalho() {
                         to="/" 
                         className="text-2xl font-bold hover:text-[#0b521f]  transition"
                     >
-                        Eco-nomy
+                        <img src={logo} alt="Logo Eco-nomy" className="w-30 h-auto" />
                     </Link>           
                 </div>
                 <Menu />
