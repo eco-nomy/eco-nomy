@@ -47,3 +47,8 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 5º Instale as dependências com `npm i` ou `npm install`
 6º Execute `npm run dev`
 7º Acesse o link http://localhost:5173/
+
+## Como Usar
+
+INSERIR LINK DA VERCEL
+
