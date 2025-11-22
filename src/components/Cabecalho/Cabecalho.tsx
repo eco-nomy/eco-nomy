@@ -15,9 +15,11 @@ export default function Cabecalho() {
       <div>
         <p>
           <img src={}/>
+          11 4444-4444
         <p/>
         <p>
           <img src={}/>
+          11 9 9999-9999
         <p/>
       </div> 
 
