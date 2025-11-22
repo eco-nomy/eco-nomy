@@ -1,13 +1,13 @@
 export default function AcessoRapido() {
   return(
     <nav>
-      <Link to="/"></Link>
-      <Link to="/integrantes"></Link>
-      <Link to="/sobre"></Link>
-      <Link to="/oficinas"></Link>
-      <Link to="/perguntas-frequentes"></Link>
-      <Link to="/trabalhos"></Link>
-      <Link to="/contato"></Link>
+      <Link to="/">Home</Link>
+      <Link to="/integrantes">Integrantes</Link>
+      <Link to="/sobre">Sobre</Link>
+      <Link to="/oficinas">Oficinas</Link>
+      <Link to="/perguntas-frequentes">Perguntas</Link>
+      <Link to="/trabalhos">Trabalhos</Link>
+      <Link to="/contato">Contato</Link>
     </nav>
   );
 }
