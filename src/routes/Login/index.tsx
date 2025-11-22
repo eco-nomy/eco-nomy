@@ -12,10 +12,16 @@ export default function Login() {
   useEffect(() => {
     document.title = "Login de funcionários";
 
-    //const token = localStorage.getItem("authToken");
-   // if (token) {
-   //   navigate("/funcionarios");
-  //  }
+    const token = localStorage.getItem("authToken");
+    const tipo = localStorage.getItem("tipoLogin");
+
+    if (token && tipo) {
+      if (tipo === "email") {
+        navigate("/trabalhadores");
+      } else if (tipo === "cnpj") {
+        navigate("/empresas");
+      }
+    }
   }, [navigate]);
 
   const {
@@ -34,14 +40,20 @@ export default function Login() {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const resp = await fetch("https://eco-nomy-sis-stable.onrender.com", {
+      // Decide qual endpoint chamar
+      const endpoint =
+        tipoLogin === "email"
+          ? "https://eco-nomy-sis-stable.onrender.com/empregado/login"
+          : "https://eco-nomy-sis-stable.onrender.com/empresa/login";
+
+      const resp = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "x-api-key": "chave-primaria",
         },
         body: JSON.stringify({
-          login: data.email, // pode ser email ou CNPJ
+          login: data.email, // email ou cnpj
           senha: data.senha,
         }),
       });
@@ -51,15 +63,22 @@ export default function Login() {
       const usuario: Usuario = await resp.json();
       console.log("Resposta da API:", usuario);
 
-      //if (usuario.funcionario) {
-       // localStorage.setItem("authToken", usuario.token);
-       // localStorage.setItem("funcionarioId", usuario.userId.toString());
-      //  console.log("ID do funcionário logado:", usuario.userId);
-       // setExibeLoginNaoEncontrado(false);
-      //  navigate("/funcionarios");
-     // } else {
-     //   setExibeLoginNaoEncontrado(true);
-     // }
+      if (usuario.token) {
+        localStorage.setItem("authToken", usuario.token);
+        localStorage.setItem("userId", usuario.userId.toString());
+        localStorage.setItem("tipoLogin", tipoLogin!);
+
+        setExibeLoginNaoEncontrado(false);
+
+        // Redireciona conforme tipo de login
+        if (tipoLogin === "email") {
+          navigate("/trabalhadores");
+        } else {
+          navigate("/empresas");
+        }
+      } else {
+        setExibeLoginNaoEncontrado(true);
+      }
     } catch (error) {
       console.error("Erro no login:", error);
       alert("Erro no processo de login!");
@@ -68,8 +87,10 @@ export default function Login() {
 
   return (
     <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-200 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md bg-[var(--c-bg)]  p-6 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">Escolha forma de login</h1>
+      <div className="w-full max-w-md bg-[var(--c-bg)] p-6 rounded-lg shadow-md">
+        <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">
+          Escolha forma de login
+        </h1>
 
         <div className="justify-center gap-4 mb-6">
           <button
@@ -109,7 +130,7 @@ export default function Login() {
                 placeholder={
                   tipoLogin === "email"
                     ? "Digite seu email"
-                    : "Digite seu CNPJ"
+                    : "Digite seu CNPJ (somente números)"
                 }
                 maxLength={tipoLogin === "email" ? 60 : 14}
                 {...register("email", {
@@ -126,7 +147,7 @@ export default function Login() {
                 })}
                 onInput={(e) => {
                   if (tipoLogin === "cnpj") {
-                    e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); // só números
+                    e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
                   }
                 }}
                 className={`w-full px-4 py-2 rounded-md bg-white border ${
@@ -134,9 +155,7 @@ export default function Login() {
                 } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.email.message}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
               )}
             </div>
 
@@ -160,47 +179,24 @@ export default function Login() {
                     errors.senha ? "border-red-500" : "border-gray-300"
                   } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
                 />
-              <button
-                type="button"
-                onClick={() => setMostrarSenha((prev) => !prev)}
-                className="cursor-pointer absolute right-3 top-2 p-1"
-                aria-label="Mostrar ou ocultar senha"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="#0b521f"
-                  className="w-5 h-5"
+                <button
+                  type="button"
+                  onClick={() => setMostrarSenha((prev) => !prev)}
+                  className="cursor-pointer absolute right-3 top-2 p-1"
+                  aria-label="Mostrar ou ocultar senha"
                 >
-                  {mostrarSenha ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 3l18 18M9.88 9.88a3.75 3.75 0 004.24 4.24M6.75 6.75C4.5 8.25 2.25 12 2.25 12s3.75 6.75 9.75 6.75c1.5 0 2.91-.33 4.2-.92M17.25 17.25C19.5 15.75 21.75 12 21.75 12s-3.75-6.75-9.75-6.75c-.84 0-1.65.11-2.42.31"
-                    />
-                  )}
-                </svg>
-              </button>
+                  👁
+                </button>
               </div>
               {errors.senha && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.senha.message}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{errors.senha.message}</p>
               )}
             </div>
 
             <button
               type="submit"
               id="botaoLogin"
-              className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)]  py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
+              className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
             >
               Fazer Login
             </button>
