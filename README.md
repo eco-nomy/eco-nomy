@@ -37,18 +37,18 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="30" alt="Tailwind CSS"/> **Tailwind CSS**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="Java"/> **Java**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="30" alt="Vercel"/> **Vercel**
-- <img src="./src/img/icones/render.png" width="30" alt="Render"/> **Render**
+- <img src="./src/img/icone/render.png" width="30" alt="Render"/> **Render**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="30" alt="Postman"/> **Postman**
 
 ## Instalação
 
-1º Acesse o Repositório: https://github.com/eco-nomy/eco-nomy
-2º Clique em `<> CODE`, escolha a opção `HTTPS` e copie o URL
-3º Abra o Git Bash e cole o comando `git clone https://github.com/eco-nomy/eco-nomy.git`
-4º Digite `cd eco-nomy`
-5º Instale as dependências com `npm i` ou `npm install`
-6º Execute `npm run dev`
-7º Acesse o link http://localhost:5173/
+1º Acesse o Repositório: https://github.com/eco-nomy/eco-nomy  
+2º Clique em `<> CODE`, escolha a opção `HTTPS` e copie o URL  
+3º Abra o Git Bash e cole o comando `git clone https://github.com/eco-nomy/eco-nomy.git`  
+4º Digite `cd eco-nomy`  
+5º Instale as dependências com `npm i` ou `npm install`  
+6º Execute `npm run dev`  
+7º Acesse o link http://localhost:5173/  
 
 ## Como Usar
 
