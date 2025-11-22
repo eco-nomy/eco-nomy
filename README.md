@@ -38,12 +38,12 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 - <img src="./src/img/icones/render.png" width="30" alt="Render"/> **Render**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="30" alt="Postman"/> **Postman**
 
+## Instalação
 
-
-• Instalação (0,28 ponto)
-• Como Usar (0,28 ponto)
-• Estrutura de Pastas (0,28 ponto)
-• Endpoints ou Rotas Principais (0,28 ponto)
-• Autores e Créditos (0,28 ponto)
-• Screenshots / Demonstração (0,28 ponto)
-• Contato (0,28 ponto)
+1º Acesse o Repositório: https://github.com/eco-nomy/eco-nomy
+2º Clique em `<> CODE`, escolha a opção `HTTPS` e copie o URL
+3º Abra o Git Bash e cole o comando `git clone https://github.com/eco-nomy/eco-nomy.git`
+4º Digite `cd eco-nomy`
+5º Instale as dependências com `npm i` ou `npm install`
+6º Execute `npm run dev`
+7º Acesse o link http://localhost:5173/
