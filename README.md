@@ -52,3 +52,6 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 
 INSERIR LINK DA VERCEL
 
+## Estrutura de Pastas
+
+`utilizar tree`
