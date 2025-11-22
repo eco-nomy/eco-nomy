@@ -82,3 +82,20 @@ não sei oq inserir
 ## Screenshots / Demonstração
 
 link youtube
+
+## Contato
+
+| Nome                | RM       | Turma   | GitHub                                       | LinkedIn                                     |
+|---------------------|----------|---------|----------------------------------------------|----------------------------------------------|
+| Rafael Kubagawa Ramos      | RM565572 | 1TDSPO   | [@Rafaelkubagawa](https://github.com/Rafaelkubagawa) | [Rafael Kubagawa](https://www.linkedin.com/in/rafael-kubagawa-ramos-243896330)     |
+| Victor Sabelli Rocha Batista         | RM566224 | 1TDSPO   | [@Sabelli](https://github.com/Sabelli)   | [Victor Sabelli](https://www.linkedin.com/in/victorsabelli/)    |
+| Vinicius Soteras Braga       | RM566230 | 1TDSPO   | [@BragaSoterasVinicius](https://github.com/BragaSoterasVinicius) | [Vinicius Soteras](https://www.linkedin.com/in/vinicius-soteras-braga-60335516a/) |
+
+Rafael Kubagawa Ramos
+<img src="/src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="60"/>
+
+Victor Sabelli Rocha Batista
+<img src="/src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+Vinicius Soteras Braga
+<img src="/src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
