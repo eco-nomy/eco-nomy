@@ -9,6 +9,23 @@ export default function Cabecalho() {
           </p>
         </div>
       </div>
+
+    <div>
+      <p>
+        <img src={}/>
+      <p/>
+      <p>
+        <img src={}/>
+      <p/>
+    </div> 
+
+     
+    <div>
+      <div>
+        
+      <div/>
+    <div/>
+
     </header>
   )
 }
