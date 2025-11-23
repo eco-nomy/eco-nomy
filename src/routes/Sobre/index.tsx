@@ -14,10 +14,7 @@ export default function Sobre() {
           Sobre a Eco-nomy
         </h1>
         <p className="text-lg max-w-2xl mx-auto text-[var(--c-text)]">
-          A Eco-nomy nasceu com o propósito de acelerar a transição para uma
-          economia verde no Brasil. Somos uma GreenTech que une tecnologia,
-          sustentabilidade e justiça social para criar um futuro mais justo e
-          ambientalmente responsável.
+            A Eco-nomy é a GreenTech pioneira que está redefinindo o setor de serviços ambientais no Brasil. Nascemos com o propósito de acelerar a transição para uma economia verde, utilizando Inteligência Artificial como a fundação de um futuro mais justo. Combinamos tecnologia de ponta, sustentabilidade e justiça social para garantir que cada transação eleve o padrão de dignidade do trabalho e a responsabilidade ambiental no país.
         </p>
       </section>
 
@@ -25,17 +22,14 @@ export default function Sobre() {
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-[var(--c-text)]">Nossa Missão</h2>
           <p className="text-lg">
-            Promover conexões sustentáveis entre empresas, profissionais e cidadãos,
-            garantindo que cada transação gere impacto positivo para o meio ambiente
-            e para a sociedade.
+            Inovamos o futuro do trabalho sustentável ao promover conexões éticas e rastreáveis entre empresas, profissionais e cidadãos. Nosso compromisso é garantir que cada transação gere um impacto positivo líquido para o meio ambiente e, através da nossa tecnologia, eleve o padrão de justiça e dignidade no mercado de serviços verdes.
           </p>
         </div>
 
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-[var(--c-text)]">Nossa Visão</h2>
           <p className="text-lg">
-            Ser referência nacional em soluções digitais para a economia verde,
-            liderando a transformação rumo a um Brasil mais sustentável e justo.
+            Ser reconhecida como a pioneira nacional na criação de soluções éticas sustentáveis, liderando a transformação do mercado para um futuro onde a Inteligência Artificial não só impulsiona a sustentabilidade no Brasil, mas também garante a justiça econômica em todas as transações.
           </p>
         </div>
       </section>
