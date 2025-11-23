@@ -30,13 +30,14 @@ const router = createBrowserRouter([
       { path: "/integrantes", element: <Integrantes /> },
       { path: "/trabalhos", element: <Trabalhos /> },
       { path: "/contratacao", element: <Contratacao /> },
-    { path: "/propostaDetalhes", element: <PropostaDetalhes /> },
+      { path: "/propostaDetalhes", element: <PropostaDetalhes /> },
       { path: "/hub", element: <Hub /> },
       { path: "/contato", element: <Contato /> },
       { path: "/trabalhadores", element: <Trabalhadores /> },
       { path: "/empresas", element: <Empresas /> },
       { path: "/login", element: <Login /> },
-{ path: "/cadastro", element: <Cadastro /> }
+      { path: "/cadastro", element: <Cadastro /> },
+      { path: "/proposta/:id", element: <PropostaDetalhes /> }
     ]
   }
 ])
