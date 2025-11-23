@@ -94,7 +94,6 @@ export default function Login() {
       }
 
       localStorage.setItem("tipoLogin", tipoDetectado);
-
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
       setExibeLoginNaoEncontrado(false);
@@ -108,14 +107,14 @@ export default function Login() {
 
   return (
     <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md bg-[var(--c-bg)] p-6 rounded-lg shadow-md">
+      <div className="w-full max-w-md bg-[var(--c-bg6)] p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">
           Login
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label htmlFor="login" className="block text-sm font-medium mb-1 text-[#194737]">
+            <label htmlFor="login" className="block text-sm font-medium mb-1 text-[var(--c-text)]">
               Email ou CNPJ
             </label>
             <input
@@ -133,7 +132,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label htmlFor="senha" className="block text-sm font-medium mb-1 text-[#194737]">
+            <label htmlFor="senha" className="block text-sm font-medium mb-1 text-[var(--c-text)]">
               Senha
             </label>
             <div className="relative">
@@ -165,6 +164,14 @@ export default function Login() {
             className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
           >
             Fazer Login
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate("/cadastro")}
+            className="cursor-pointer w-full mt-3 text-[var(--c-text)] py-2 rounded-md hover:underline transition-colors"
+          >
+            Não tem Cadastro?
           </button>
 
           {exibeLoginNaoEncontrado && (
