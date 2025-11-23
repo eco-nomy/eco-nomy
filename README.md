@@ -257,12 +257,12 @@ https://www.postman.com/aviation-astronaut-85642828/global-solution-eco-nomy/req
 
 [<img src="src/img/screenshots/home.jpg" width="150"/>](src/img/screenshots/home.jpg)
 [<img src="src/img/screenshots/homedark.jpg" width="150"/>](src/img/screenshots/homedark.jpg)
-[<img src="/src/img/screenshots/cadastro.jpg" width="150"/>](/src/img/screenshots/cadastro.jpg)
-[<img src="/src/img/screenshots/login.jpg" width="150"/>](/src/img/screenshots/login.jpg)
-[<img src="/src/img/screenshots/hub.jpg" width="150"/>](/src/img/screenshots/hub.jpg)
-[<img src="/src/img/screenshots/hubdark.jpg" width="150"/>](/src/img/screenshots/hubdark.jpg)
-[<img src="/src/img/screenshots/empresas.jpg" width="150"/>](/src/img/screenshots/empresas.jpg)
-[<img src="/src/img/screenshots/trabalhos.jpg" width="150"/>](/src/img/screenshots/trabalhos.jpg)
+[<img src="src/img/screenshots/cadastro.jpg" width="150"/>](/src/img/screenshots/cadastro.jpg)
+[<img src="src/img/screenshots/login.jpg" width="150"/>](/src/img/screenshots/login.jpg)
+[<img src="src/img/screenshots/hub.jpg" width="150"/>](/src/img/screenshots/hub.jpg)
+[<img src="src/img/screenshots/hubdark.jpg" width="150"/>](/src/img/screenshots/hubdark.jpg)
+[<img src="src/img/screenshots/empresas.jpg" width="150"/>](/src/img/screenshots/empresas.jpg)
+[<img src="src/img/screenshots/trabalhos.jpg" width="150"/>](/src/img/screenshots/trabalhos.jpg)
 
 link youtube
 
