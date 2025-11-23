@@ -37,11 +37,11 @@ export default function Home() {
         </div>
 
         <div className="flex-1">
-          <img src={sustentabilidade} alt="Logo Eco-nomy" className=""/>
+          <img src={sustentabilidade} alt="" className="rounded"/>
         </div>
       </section>
 
-      <section className="bg-[var(--c-bg)] text-[var(--c-text)] w-full bg-gradient-to-r from-[#2e7c10] to-[#71bd5a] text-white text-center py-8">
+      <section className="bg-[var(--c-bg3)] text-[var(--c-text)] w-full text-white text-center py-8">
         <h2 className="text-2xl font-bold mb-2">
           Tecnologia a serviço da sustentabilidade
         </h2>
@@ -59,15 +59,15 @@ export default function Home() {
         </p>
 
         <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <li className="p-6 rounded-lg shadow bg-[#2e7c10] text-white">
+          <li className="p-6 rounded-lg shadow bg-[var(--c-bg3)] text-[var(--c-text2)]">
             Plataforma verde com impacto ambiental real
           </li>
 
-          <li className="p-6 rounded-lg shadow bg-[#2e7c10] text-white">
+          <li className="p-6 rounded-lg shadow bg-[var(--c-bg3)] text-[var(--c-text2)]">
             IA para justiça e prevenção de fraudes
           </li>
 
-          <li className="p-6 rounded-lg shadow bg-[#2e7c10] text-white">
+          <li className="p-6 rounded-lg shadow bg-[var(--c-bg3)] text-[var(--c-text2)]">
             Pagamento protegido com Escrow Digital
           </li>
         </ul>
