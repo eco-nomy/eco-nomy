@@ -30,7 +30,7 @@ export default function Empresas() {
         status: !p.status ? "Aberta" : p.status,
       }));
 
-      setPropostas(normalizado.filter((p) => p.empresaid === empresaId));
+      setPropostas(normalizado.filter((p) => p.empresaId === empresaId));
     } catch (err) {
       console.error("Erro ao carregar propostas:", err);
     }
@@ -49,8 +49,8 @@ export default function Empresas() {
         status: editando ? (editando.status ?? "Aberta") : "Aberta",
       };
 
-      if (editando?.empregadoid != null) {
-        payload.empregadoId = editando.empregadoid;
+      if (editando?.empregadoId != null) {
+        payload.empregadoId = editando.empregadoId;
       }
 
       if (editando) {
