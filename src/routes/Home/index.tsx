@@ -15,10 +15,7 @@ export default function Home() {
         </h1>
 
         <p className="bg-[var(--c-bg)] text-[var(--c-text)] text-lg max-w-2xl mx-auto text-[#414141]">
-          A Eco-nomy é um Marketplace Inteligente e uma GreenTech criada para
-          orquestrar a transição nacional para a Economia Verde. Conectamos
-          empresas, profissionais e cidadãos em uma rede sustentável baseada em
-          tecnologia, justiça e transparência.
+          A Eco-nomy é a GreenTech pioneira que está inovando o futuro do trabalho sustentável. Somos um Marketplace Inteligente que utiliza Inteligência Artificial para conectar empresas, profissionais e cidadãos em uma rede baseada em justiça econômica, segurança transacional e transparência.
         </p>
       </section>
 
