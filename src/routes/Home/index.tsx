@@ -34,7 +34,7 @@ export default function Home() {
         </div>
 
         <div className="flex-1">
-          <img src={sustentabilidade} alt="" className="rounded"/>
+          <img src={sustentabilidade} alt="Paisagem com estruturas industriais feitas de vegetação verde emitindo vapor branco, cercadas por folhagens densas, com uma cidade desfocada ao fundo, representando o conceito de sustentabilidade e indústria ecológica." className="rounded"/>
         </div>
       </section>
 
