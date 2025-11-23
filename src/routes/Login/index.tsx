@@ -94,7 +94,6 @@ export default function Login() {
       }
 
       localStorage.setItem("tipoLogin", tipoDetectado);
-
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
       setExibeLoginNaoEncontrado(false);
@@ -165,6 +164,14 @@ export default function Login() {
             className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
           >
             Fazer Login
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate("/cadastro")}
+            className="cursor-pointer w-full mt-3 text-[var(--c-text)] py-2 rounded-md hover:underline transition-colors"
+          >
+            Não tem Cadastro?
           </button>
 
           {exibeLoginNaoEncontrado && (

@@ -13,7 +13,7 @@ export type Trabalhador = {
   nome: string;
   email: string;
   saldo: number;
-  dataCriacao: string;
+  dataCriacao: string; // vindo do backend
   token?: string;
   funcionario: true;
 };
@@ -23,7 +23,7 @@ export type EmpresaUsuario = {
   nome: string;
   cnpj: string;
   saldo: number;
-  dataCriacao: string;
+  dataCriacao: string; // <-- confirmar se backend envia!
   token?: string;
   funcionario: false;
 };
