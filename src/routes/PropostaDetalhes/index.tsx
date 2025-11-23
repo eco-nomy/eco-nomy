@@ -47,8 +47,11 @@ export default function PropostaDetalhes() {
       <h1 className="text-2xl font-bold mb-4">{proposta.descricao}</h1>
       <p className="mb-2"><strong>Descrição:</strong> {proposta.descricao}</p>
       <p className="mb-2"><strong>Valor:</strong> R$ {proposta.valor.toFixed(2)}</p>
-      <p className="mb-2"><strong>Status:</strong> {proposta.status}</p>
-      <p className="mb-2"><strong>Data de criação:</strong> {new Date(proposta.data_criacao).toLocaleString()}</p>
+      <p className="mb-2">
+        <strong>Status:</strong>{" "}
+        {proposta.status && proposta.status.trim() !== "" ? proposta.status : "Vacante"}
+      </p>
+      <p className="mb-2"><strong>Data de criação:</strong> {new Date(proposta.dataCriacao).toLocaleString()}</p>
     </main>
   );
 }
