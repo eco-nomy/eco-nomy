@@ -1,11 +1,10 @@
 export type Proposta = {
   id: number;
-  empresa_id: number;
-  empregado_id: number;
-  titulo: string;
+  empresaId: number;
   descricao: string;
   valor: number;
-  data_criacao: string;
-  is_longo_prazo: number;
+  dataCriacao: string;
+  empregadoId: number;
   status: string;
+  longoPrazo: boolean;
 };

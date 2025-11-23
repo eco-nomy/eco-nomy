@@ -9,7 +9,7 @@ export default function ListaTrabalhos() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("https://eco-nomy-sis-stable.onrender.com/proposta", {
+        const response = await fetch("https://eco-nomy-sis-stable-524v.onrender.com/proposta", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default function ListaTrabalhos() {
 
         const data: Proposta[] = await response.json();
 
-        const filtradas = data.filter((p) => p.is_longo_prazo === 0);
+        const filtradas = data.filter((p) => p.longoPrazo === false);
         setPropostas(filtradas);
       } catch (error) {
         console.error(error);
