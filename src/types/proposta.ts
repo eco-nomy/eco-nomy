@@ -1,7 +1,7 @@
 export interface Proposta {
   id: number;
-  empresa_id: number;
-  empregado_id: number | null;
+  empresaid: number;
+  empregadoid: number | null;
   descricao: string;
   valor: number;
   dataCriacao: string;
