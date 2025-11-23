@@ -45,7 +45,6 @@ export default function PropostaDetalhes() {
   return (
     <main className="p-6 text-[#194737]">
       <h1 className="text-2xl font-bold mb-4">{proposta.descricao}</h1>
-      <p className="mb-2"><strong>Descrição:</strong> {proposta.descricao}</p>
       <p className="mb-2"><strong>Valor:</strong> R$ {proposta.valor.toFixed(2)}</p>
       <p className="mb-2">
         <strong>Status:</strong>{" "}
