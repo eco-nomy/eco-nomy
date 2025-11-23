@@ -1,6 +1,6 @@
 # Eco-nomy
 
-Somos um marketplace inteligente e acessível que une segurança, transparência e sustentabilidade.
+Somos a GreenTech que está redefinindo o futuro do trabalho. Através de um Marketplace inteligente e Inteligência Artificial, conectamos empresas a prestadores de serviços ambientais, garantindo segurança transacional e erradicando a subvalorização do trabalho com a nossa Precificação Ética.
 
 ## Status do Projeto
 
@@ -22,8 +22,12 @@ Versão beta disponível (MVP)
 
 ## Sobre o Projeto
  
-Oferecemos uma área para contratação de serviços por demanda com pagamentos via Escrow Digital, vagas formais na Economia Verde e um Hub de Colaboração para empresas.
-Utilizamos Inteligência Artificial para calcular preços justos e avaliar possibilidade de fraude, garantindo confiança e justiça nas relações entre contratantes e prestadores de serviços.
+Somos o Hub pioneiro que orquestra a cadeia de valor sustentável no Brasil. Nossa plataforma oferece:
+
+- Um Marketplace Inteligente para contratação de serviços por demanda, com Escrow Digital para proteção de pagamento e transparência.
+- Um Hub de Colaboração e canal de vagas formais, conectando corporações com talentos e parceiros verdes.
+
+Nosso Core Tecnológico: Inteligência Artificial para criar o novo padrão de confiança no setor, com modelos de Precificação Ética que erradicam a subvalorização e Gestão de Risco Preditiva que assegura a segurança transacional.
 
 ## Tecnologias Utilizadas
 
@@ -38,8 +42,9 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="30" alt="Tailwind CSS"/> **Tailwind CSS**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="Java"/> **Java**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="30" alt="Vercel"/> **Vercel**
-- <img src="/src/img/icone/render.png" width="30" alt="Render"/> **Render**
+- <img src="src/img/icone/render.png" width="30" alt="Render"/> **Render**
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="30" alt="Postman"/> **Postman**
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="30" alt="Flask"/> **Flask**
 
 ## Instalação
 
@@ -53,7 +58,9 @@ Utilizamos Inteligência Artificial para calcular preços justos e avaliar possi
 
 ## Como Usar
 
-INSERIR LINK DA VERCEL
+Além de hospedar de forma local através do nosso repositório, assim como foi ensinado anteriormente em [Instalação](#instalação), você pode acessar pelo link abaixo, onde hospedamos a aplicação na plataforma da Vercel
+
+https://eco-nomy.vercel.app/
 
 ## Estrutura de Pastas
 
@@ -75,11 +82,19 @@ INSERIR LINK DA VERCEL
 
 ## Endpoints
 
-`adicionar endpoints da API`
+Você pode consultar todos os endpoints da nossa API no link abaixo!  
+https://www.postman.com/aviation-astronaut-85642828/global-solution-eco-nomy/request/hdvofhs/create?tab=body
 
 ## Autores e Créditos
 
-não sei oq inserir
+**Autores (Desenvolvedores Principais)**
+- Rafael Kubagawa Ramos
+- Victor Sabelli Rocha Batista
+- Vinicius Soteras Braga
+
+**Contribuições Acadêmicas e Institucionais**
+- Projeto desenvolvido como entrega da Global Solution com o tema Futuro do Trabalho para a FIAP
+- Orientação e apoio dos professores da turma **1TDSPO**
 
 ## Screenshots / Demonstração
 
@@ -96,13 +111,13 @@ link youtube
 ## Fotos
 
 Rafael Kubagawa Ramos  
-<img src="src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="30"/>
+<img src="src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="60"/>
 
 Victor Sabelli Rocha Batista  
-<img src="src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="30"/>
+<img src="src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="60"/>
 
 Vinicius Soteras Braga  
-<img src="src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="30"/>
+<img src="src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
 
 ## Aviso
 
