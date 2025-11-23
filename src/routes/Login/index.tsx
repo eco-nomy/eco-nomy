@@ -1,82 +1,105 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import type { LoginFormData, Usuario } from "../../types/loginFormData";
+import { useNavigate, Navigate } from "react-router-dom";
+import type { LoginFormData, Usuario, TipoLogin } from "../../types/loginFormData";
+
+function getRedirectPath(): string | null {
+  const tipo = localStorage.getItem("tipoLogin");
+  const usuario = localStorage.getItem("usuarioLogado");
+
+  if (tipo && usuario) {
+    if (tipo === "email") {
+      return "/trabalhadores";
+    } else if (tipo === "cnpj") {
+      return "/empresas";
+    }
+  }
+  return null;
+}
 
 export default function Login() {
   const navigate = useNavigate();
   const [exibeLoginNaoEncontrado, setExibeLoginNaoEncontrado] = useState(false);
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
+  const redirectPath = getRedirectPath();
+  if (redirectPath) {
+    return <Navigate to={redirectPath} replace />;
+  }
+
   useEffect(() => {
     document.title = "Login de funcionários";
 
-    const token = localStorage.getItem("authToken");
     const tipo = localStorage.getItem("tipoLogin");
+    const usuario = localStorage.getItem("usuarioLogado");
 
-    if (token && tipo) {
+    if (tipo && usuario) {
       if (tipo === "email") {
-        navigate("/trabalhadores");
+        navigate("/trabalhadores", { replace: true });
       } else if (tipo === "cnpj") {
-        navigate("/empresas");
+        navigate("/empresas", { replace: true });
       }
     }
   }, [navigate]);
 
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-    reset,
-    watch,
-  } = useForm<LoginFormData>({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    defaultValues: {
-      login: "",
-      senha: "",
-      tipo: "email",
-    },
-  });
+  const { handleSubmit, register, formState: { errors } } =
+    useForm<LoginFormData>({
+      mode: "onChange",
+      defaultValues: { login: "", senha: "" },
+    });
+
+  const detectarTipoLogin = (valor: string): TipoLogin => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const soNumeros = valor.replace(/\D/g, "");
+
+    if (regexEmail.test(valor)) return "email";
+    if (soNumeros.length === 14) return "cnpj";
+    return "email";
+  };
 
   const onSubmit = async (data: LoginFormData) => {
     try {
+      const tipoDetectado = detectarTipoLogin(data.login);
+
       const endpoint =
-        data.tipo === "email"
-          ? "https://eco-nomy-sis-stable.onrender.com/empregado/login"
-          : "https://eco-nomy-sis-stable.onrender.com/empresa/login";
+        tipoDetectado === "email"
+          ? "https://eco-nomy-sis-stable-524v.onrender.com/empregado/login"
+          : "https://eco-nomy-sis-stable-524v.onrender.com/empresa/login";
+
+      const body =
+        tipoDetectado === "email"
+          ? JSON.stringify({ email: data.login, senha: data.senha })
+          : JSON.stringify({ cnpj: data.login.replace(/\D/g, ""), senha: data.senha });
 
       const resp = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "chave-primaria",
+          "x-api-key": "chave-primaria"
         },
-        body: JSON.stringify({
-          login: data.login,
-          senha: data.senha,
-        }),
+        body,
       });
 
-      if (!resp.ok) throw new Error("Erro ao autenticar usuário.");
+      if (!resp.ok) {
+        setExibeLoginNaoEncontrado(true);
+        return;
+      }
 
       const usuario: Usuario = await resp.json();
 
-      if (usuario.token) {
-        localStorage.setItem("authToken", usuario.token);
-        localStorage.setItem("userId", usuario.userId.toString());
-        localStorage.setItem("tipoLogin", data.tipo);
-
-        setExibeLoginNaoEncontrado(false);
-
-        if (data.tipo === "email") {
-          navigate("/trabalhadores");
-        } else {
-          navigate("/empresas");
-        }
-      } else {
-        setExibeLoginNaoEncontrado(true);
+      if ("empregadoId" in usuario) {
+        localStorage.setItem("empregadoId", usuario.empregadoId.toString());
+      } else if ("id" in usuario) {
+        localStorage.setItem("empresaId", usuario.id.toString());
       }
+
+      localStorage.setItem("tipoLogin", tipoDetectado);
+
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+
+      setExibeLoginNaoEncontrado(false);
+
+      navigate(tipoDetectado === "email" ? "/trabalhadores" : "/empresas", { replace: true });
     } catch (error) {
       console.error("Erro no login:", error);
       alert("Erro no processo de login!");
@@ -84,72 +107,22 @@ export default function Login() {
   };
 
   return (
-    <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-200 flex items-center justify-center px-4 py-10">
+    <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-[var(--c-bg)] p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">
-          Escolha forma de login
+          Login
         </h1>
-
-        <div className="justify-center gap-4 mb-6">
-          <button
-            type="button"
-            onClick={() => reset({ login: "", senha: "", tipo: "email" })}
-            className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full"
-          >
-            Login Trabalhador
-          </button>
-          <button
-            type="button"
-            onClick={() => reset({ login: "", senha: "", tipo: "cnpj" })}
-            className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full mt-4"
-          >
-            Login Empresa
-          </button>
-          <div className="mt-6 text-center">
-            <button
-              type="button"
-              onClick={() => navigate("/cadastro")}
-              className="cursor-pointer w-full text-[var(--c-text)] py-2 rounded-md hover:underline transition-colors"
-            >
-              Não tem conta? Cadastre-se aqui
-            </button>
-          </div>
-        </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label
-              htmlFor="login"
-              className="block text-sm font-medium mb-1 text-[#194737]"
-            >
-              {watch("tipo") === "email" ? "Email" : "CNPJ"}
+            <label htmlFor="login" className="block text-sm font-medium mb-1 text-[#194737]">
+              Email ou CNPJ
             </label>
             <input
               type="text"
               id="login"
-              placeholder={
-                watch("tipo") === "email"
-                  ? "Digite seu email"
-                  : "Digite seu CNPJ (somente números)"
-              }
-              maxLength={watch("tipo") === "email" ? 60 : 14}
-              {...register("login", {
-                required: `${watch("tipo") === "email" ? "Email" : "CNPJ"} é obrigatório.`,
-                validate: (value) => {
-                  if (watch("tipo") === "email") {
-                    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return regexEmail.test(value) || "Email inválido.";
-                  } else {
-                    const regexCNPJ = /^\d{14}$/;
-                    return regexCNPJ.test(value) || "CNPJ inválido (14 dígitos).";
-                  }
-                },
-              })}
-              onInput={(e) => {
-                if (watch("tipo") === "cnpj") {
-                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
-                }
-              }}
+              placeholder="Digite seu email ou CNPJ"
+              {...register("login", { required: "Login é obrigatório." })}
               className={`w-full px-4 py-2 rounded-md bg-white border ${
                 errors.login ? "border-red-500" : "border-gray-300"
               } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
@@ -160,10 +133,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label
-              htmlFor="senha"
-              className="block text-sm font-medium mb-1 text-[#194737]"
-            >
+            <label htmlFor="senha" className="block text-sm font-medium mb-1 text-[#194737]">
               Senha
             </label>
             <div className="relative">
@@ -171,10 +141,7 @@ export default function Login() {
                 type={mostrarSenha ? "text" : "password"}
                 id="senha"
                 placeholder="Digite sua senha"
-                maxLength={100}
-                {...register("senha", {
-                  required: "Senha é obrigatória.",
-                })}
+                {...register("senha", { required: "Senha é obrigatória." })}
                 className={`w-full px-4 py-2 rounded-md bg-white border ${
                   errors.senha ? "border-red-500" : "border-gray-300"
                 } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
@@ -195,7 +162,6 @@ export default function Login() {
 
           <button
             type="submit"
-            id="botaoLogin"
             className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
           >
             Fazer Login
@@ -203,9 +169,7 @@ export default function Login() {
 
           {exibeLoginNaoEncontrado && (
             <p className="text-red-500 text-sm mt-4 text-center">
-              {watch("tipo") === "email"
-                ? "Email ou senha incorretos!"
-                : "CNPJ ou senha incorretos!"}
+              Login ou senha incorretos!
             </p>
           )}
         </form>
