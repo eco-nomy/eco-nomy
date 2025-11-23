@@ -21,7 +21,7 @@ export default function Funcionarios() {
         </h2>
 
         <h2 className="text-2xl p-4 rounded font-bold bg-[var(--c-bg1)] text-white mb-4 hover:bg-[var(--c-bg2)]">
-<Link to='/trabalhos'>Ver propóstas de trabalhos</Link>
+<Link to='/trabalhos'>Ver propostas de trabalhos</Link>
         </h2>
 
         <button
