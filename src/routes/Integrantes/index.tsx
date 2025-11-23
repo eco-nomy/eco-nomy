@@ -11,9 +11,9 @@ export default function Integrantes() {
   }, []);
 
   return (
-    <main className="bg-white text-[#0b521f] ">
+    <main className="bg-[var(--c-bg)] text-[var(--c-text)]">
       <div className="max-w-6xl mx-auto px-4 py-10">
-        <section id="quem-somos" className="bg-white text-[#0b521f]  px-4 py-10">
+        <section id="quem-somos" className="bg-[var(--c-bg)] text-[var(--c-text)]  px-4 py-10">
           <h1 className="text-3xl font-bold text-center mb-12">Quem Somos</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -22,7 +22,7 @@ export default function Integrantes() {
               <h2 className="text-xl font-semibold">Victor Sabelli Rocha Batista</h2>
               <p>RM - 566224</p>
               <p>1TDSPO</p>
-              <div className="mt-2 space-x-2 flex">
+              <div className="mt-2 space-x-2 flex bg-[var(--c-bg4)] p-3 rounded">
                 <a href="https://www.linkedin.com/in/victorsabelli/" target="_blank">
                   <img src={linkedin} alt="Icone do Linkedin" className='hover:scale-110 transition w-20 h-auto ' />
                 </a>
@@ -37,7 +37,7 @@ export default function Integrantes() {
               <h2 className="text-xl font-semibold">Vinicius Soteras Braga</h2>
               <p>RM - 566230</p>
               <p>1TDSPO</p>
-              <div className="mt-2 space-x-2 flex">
+              <div className="mt-2 space-x-2 flex bg-[var(--c-bg4)] p-3 rounded">
                 <a href="https://www.linkedin.com/in/vinicius-soteras-braga-60335516a/" target="_blank">
                   <img src={linkedin} alt="Icone do Linkedin" className='hover:scale-110 transition w-20 h-auto' />
                 </a>
@@ -52,7 +52,7 @@ export default function Integrantes() {
               <h2 className="text-xl font-semibold">Rafael Kubagawa Ramos</h2>
               <p>RM - 565572</p>
               <p>1TDSPO</p>
-              <div className="mt-2 space-x-2 flex">
+              <div className="mt-2 space-x-2 flex bg-[var(--c-bg4)] p-3 rounded">
                 <a href="https://www.linkedin.com/in/rafael-kubagawa-ramos-243896330" target="_blank">
                   <img src={linkedin} alt="Icone do Linkedin" className='hover:scale-110 transition w-20 h-auto' />
                 </a>
