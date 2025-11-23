@@ -4,6 +4,7 @@ export type Proposta = {
   empregado_id: number | null;
   descricao: string;
   valor: number;
-  data_criacao: string;
+  dataCriacao: string;
+  status: string;
   longoPrazo: boolean;
 };
