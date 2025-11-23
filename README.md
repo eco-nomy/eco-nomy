@@ -18,6 +18,7 @@ Versão beta disponível (MVP)
 - [Screenshots / Demonstração](#screenshots--demonstração)
 - [Contato](#contato)
 - [Fotos](#-fotos)
+- [Repositório](#repositório)
 - [Aviso](#aviso)
 
 ## Sobre o Projeto
@@ -28,6 +29,9 @@ Somos o Hub pioneiro que orquestra a cadeia de valor sustentável no Brasil. Nos
 - Um Hub de Colaboração e canal de vagas formais, conectando corporações com talentos e parceiros verdes.
 
 Nosso Core Tecnológico: Inteligência Artificial para criar o novo padrão de confiança no setor, com modelos de Precificação Ética que erradicam a subvalorização e Gestão de Risco Preditiva que assegura a segurança transacional.
+
+Se tiver interesse, também pode assistir nosso Pitch da solução no YouTube!  
+https://youtu.be/kESK9c858EA
 
 ## Tecnologias Utilizadas
 
@@ -64,7 +68,157 @@ https://eco-nomy.vercel.app/
 
 ## Estrutura de Pastas
 
-`utilizar tree`
+```
+eco-nomy
+│
+│   .gitignore
+│   eslint.config.js
+│   index.html
+│   package-lock.json
+│   package.json
+│   README.md
+│   tsconfig.app.json
+│   tsconfig.json
+│   tsconfig.node.json
+│   vercel.json
+│   vite.config.ts
+│
+├───public
+│   └───img
+│           logo-arvore.png
+│
+└───src
+    │   App.tsx
+    │   global.css
+    │   main.tsx
+    │
+    ├───components
+    │   ├───AcessoRapido
+    │   │       AcessoRapido.tsx
+    │   │
+    │   ├───Cabecalho
+    │   │       Cabecalho.tsx
+    │   │
+    │   ├───CardEmpresa
+    │   │       CardEmpresa.tsx
+    │   │
+    │   ├───CardPergunta
+    │   │       CardPergunta.tsx
+    │   │
+    │   ├───FaqLista
+    │   │       FaqLista.tsx
+    │   │
+    │   ├───ListaEmpresas
+    │   │       ListaEmpresas.tsx
+    │   │
+    │   ├───ListaPropostas
+    │   │       ListaPropostas.tsx
+    │   │
+    │   ├───ListaTrabalhos
+    │   │       ListaTrabalhos.tsx
+    │   │
+    │   ├───Menu
+    │   │       Menu.tsx
+    │   │
+    │   ├───PropostaCard
+    │   │       PropostaCard.tsx
+    │   │
+    │   └───Rodape
+    │           Rodape.tsx
+    │
+    ├───context
+    │       ThemeContext.tsx
+    │
+    ├───data
+    │       listaFaq.ts
+    │
+    ├───img
+    │   │   impacto.jpg
+    │   │   inovacao.jpg
+    │   │   logo.png
+    │   │   rafael-kubagawa-ramos.jpg
+    │   │   sustentabilidade.jpg
+    │   │   victor-sabelli.jpg
+    │   │   vinicius-soteras-braga.jpg
+    │   │
+    │   ├───icone
+    │   │       facebook.png
+    │   │       github.png
+    │   │       instagram.png
+    │   │       linkedin-og.png
+    │   │       linkedin.png
+    │   │       login.png
+    │   │       mail.png
+    │   │       render.png
+    │   │       telefone.png
+    │   │       telegram.png
+    │   │       tiktok.png
+    │   │       whats.png
+    │   │       x.png
+    │   │
+    │   └───screenshots
+    │           cadastro.jpg
+    │           empresas.jpg
+    │           home.jpg
+    │           homedark.jpg
+    │           hub.jpg
+    │           hubdark.jpg
+    │           login.jpg
+    │           trabalhos.jpg
+    │
+    ├───routes
+    │   ├───Cadastro
+    │   │       index.tsx
+    │   │
+    │   ├───Contato
+    │   │       index.tsx
+    │   │
+    │   ├───Contratacao
+    │   │       index.tsx
+    │   │
+    │   ├───Empresas
+    │   │       index.tsx
+    │   │
+    │   ├───Error
+    │   │       index.tsx
+    │   │
+    │   ├───Home
+    │   │       index.tsx
+    │   │
+    │   ├───Hub
+    │   │       index.tsx
+    │   │
+    │   ├───Integrantes
+    │   │       index.tsx
+    │   │
+    │   ├───Login
+    │   │       index.tsx
+    │   │
+    │   ├───Perguntas
+    │   │       index.tsx
+    │   │       
+    │   ├───PropostaDetalhes
+    │   │       index.tsx
+    │   │
+    │   ├───Sobre
+    │   │       index.tsx
+    │   │
+    │   ├───Trabalhadores
+    │   │       index.tsx
+    │   │
+    │   └───Trabalhos
+    │           index.tsx
+    │
+    └───types
+            cadastro.ts
+            cardFaq.ts
+            empresa.ts
+            formData.ts
+            loginFormData.ts
+            proposta.ts
+            tipoFaq.ts
+            usuario.ts
+```
 
 ## Rotas Principais
 
@@ -74,11 +228,14 @@ https://eco-nomy.vercel.app/
 - "/integrantes"
 - "/trabalhos"
 - "/contratacao"
+- "/propostaDetalhes"
 - "/hub"
 - "/contato"
 - "/trabalhadores"
 - "/empresas"
 - "/login"
+- "/cadastro"
+- "/proposta/:id"
 
 ## Endpoints
 
@@ -98,7 +255,17 @@ https://www.postman.com/aviation-astronaut-85642828/global-solution-eco-nomy/req
 
 ## Screenshots / Demonstração
 
-link youtube
+[<img src="src/img/screenshots/home.jpg" width="150"/>](src/img/screenshots/home.jpg)
+[<img src="src/img/screenshots/homedark.jpg" width="150"/>](src/img/screenshots/homedark.jpg)
+[<img src="src/img/screenshots/cadastro.jpg" width="150"/>](/src/img/screenshots/cadastro.jpg)
+[<img src="src/img/screenshots/login.jpg" width="150"/>](/src/img/screenshots/login.jpg)
+[<img src="src/img/screenshots/hub.jpg" width="150"/>](/src/img/screenshots/hub.jpg)
+[<img src="src/img/screenshots/hubdark.jpg" width="150"/>](/src/img/screenshots/hubdark.jpg)
+[<img src="src/img/screenshots/empresas.jpg" width="150"/>](/src/img/screenshots/empresas.jpg)
+[<img src="src/img/screenshots/trabalhos.jpg" width="150"/>](/src/img/screenshots/trabalhos.jpg)
+
+Assista nossa demonstração no YouTube!
+https://youtu.be/hc1RQK1Yvyc
 
 ## Contato
 
@@ -118,6 +285,16 @@ Victor Sabelli Rocha Batista
 
 Vinicius Soteras Braga  
 <img src="src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+## Repositório
+
+**Conheça o nosso repositório:**
+
+https://github.com/eco-nomy/eco-nomy
+
+<a href="https://github.com/eco-nomy/eco-nomy" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-eco--nomy-0b521f?style=flat&logo=github" width=20%/>
+</a>
 
 ## Aviso
 
