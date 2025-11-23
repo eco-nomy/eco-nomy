@@ -15,6 +15,8 @@ import Login from './routes/Login/index.tsx'
 import Trabalhadores from './routes/Trabalhadores/index.tsx'
 import { ThemeProvider } from './context/ThemeContext'
 import Empresas from './routes/Empresas/index.tsx'
+import PropostaDetalhes from './routes/PropostaDetalhes/index.tsx'
+import Cadastro from './routes/Cadastro/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,13 @@ const router = createBrowserRouter([
       { path: "/integrantes", element: <Integrantes /> },
       { path: "/trabalhos", element: <Trabalhos /> },
       { path: "/contratacao", element: <Contratacao /> },
+    { path: "/propostaDetalhes", element: <PropostaDetalhes /> },
       { path: "/hub", element: <Hub /> },
       { path: "/contato", element: <Contato /> },
-      { path: "/Trabalhadores", element: <Trabalhadores /> },
+      { path: "/trabalhadores", element: <Trabalhadores /> },
       { path: "/empresas", element: <Empresas /> },
-      { path: "/login", element: <Login /> }
+      { path: "/login", element: <Login /> },
+{ path: "/cadastro", element: <Cadastro /> }
     ]
   }
 ])
