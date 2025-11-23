@@ -33,11 +33,13 @@ export default function Empresas() {
   // Criar ou atualizar proposta
   const onSubmit = async (data: any) => {
     try {
-      const payload = {
-        ...data,
-        empresa_id: empresaId,
-        longoPrazo: data.longoPrazo === true || data.longoPrazo === "true",
-      };
+    const payload = {
+      descricao: data.descricao, // do formulário
+      valor: data.valor,
+      longoPrazo: data.longoPrazo === true || data.longoPrazo === "true",
+      empresa_id: empresaId,
+      status: editando ? editando.status : "pendente"
+    };
 
       if (editando) {
         // Atualizar proposta existente
