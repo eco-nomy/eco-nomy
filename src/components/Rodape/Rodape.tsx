@@ -8,7 +8,7 @@ import linkedin from '../../img/icone/linkedin.png'
 
 export default function Rodape() {
   return (
-    <footer className="bg-[#0b521f] text-white py-10 px-6">
+    <footer className="bg-[var(--c-bg2)] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
