@@ -59,7 +59,7 @@ export default function Contato() {
             <li>
               <p className="text-[var(--c-text)] inline-flex items-center gap-3 justify-center px-6 py-3 rounded-lg transition cursor-default">
                 <img src={email} alt="Ícone de E-mail" className="w-6 h-6" />
-                saudeamiga@email.com
+                economy@email.com
               </p>
             </li>
             <li>
