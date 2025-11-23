@@ -1,4 +1,4 @@
-export type Proposta = {
+export interface Proposta {
   id: number;
   empresa_id: number;
   empregado_id: number | null;
