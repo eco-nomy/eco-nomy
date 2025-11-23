@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import ListaEmpresas from '../../components/ListaEmpresas/ListaEmpresas';
 
 export default function Hub() {
   useEffect(() => {
@@ -6,8 +7,8 @@ export default function Hub() {
   }, []);
   
   return (
-    <main className="">
-
+    <main className="w-full max-w-screen px-4 py-6 text-[#194737] text-center overflow-hidden">
+      <ListaEmpresas />
     </main>
   )
 }

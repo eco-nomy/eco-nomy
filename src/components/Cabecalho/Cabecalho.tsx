@@ -11,7 +11,7 @@ export default function Cabecalho() {
     return (
         <header className="bg-[var(--c-bg)] text-[var(--c-text)] shadow-md transition">
 
-            <div className="bg-[var(--c-primary)] text-white flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-2 text-sm">
+            <div className="bg-[var(--c-bg2)] text-white flex flex-col sm:flex-row sm:justify-between sm:items-center px-4 py-2 text-sm">
 
                 <div className="flex justify-center">
                     <p className="flex items-center gap-1">economy@email.com</p>
@@ -34,7 +34,7 @@ export default function Cabecalho() {
 
                     <button
                         onClick={toggleTheme}
-                        className="cursor-pointer px-3 py-2 rounded-lg shadow bg-[var(--c-primary)] text-white hover:bg-[var(--c-primary-light)] transition"
+                        className="cursor-pointer px-3 py-2 rounded-lg shadow bg-[var(--c-bg2)] text-white hover:bg-[var(--c-bg)] transition"
                     >
                         {theme === "light" ? "🌙" : "☀️"}
                     </button>

@@ -1,11 +1,10 @@
-export type Proposta = {
+export interface Proposta {
   id: number;
   empresa_id: number;
-  empregado_id: number;
-  titulo: string;
+  empregado_id: number | null;
   descricao: string;
   valor: number;
-  data_criacao: string;
-  is_longo_prazo: number;
+  dataCriacao: string;
   status: string;
+  longoPrazo: boolean;
 };

@@ -5,9 +5,8 @@ import type { LoginFormData, Usuario } from "../../types/loginFormData";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [exibeLoginNaoEncontrado, setExibeLoginNaoEncontrado] = useState<boolean>(false);
-  const [mostrarSenha, setMostrarSenha] = useState<boolean>(false);
-  const [tipoLogin, setTipoLogin] = useState<"email" | "cnpj" | null>(null);
+  const [exibeLoginNaoEncontrado, setExibeLoginNaoEncontrado] = useState(false);
+  const [mostrarSenha, setMostrarSenha] = useState(false);
 
   useEffect(() => {
     document.title = "Login de funcionários";
@@ -29,20 +28,21 @@ export default function Login() {
     register,
     formState: { errors },
     reset,
+    watch,
   } = useForm<LoginFormData>({
     mode: "onChange",
     reValidateMode: "onChange",
     defaultValues: {
-      email: "",
+      login: "",
       senha: "",
+      tipo: "email",
     },
   });
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      // Decide qual endpoint chamar
       const endpoint =
-        tipoLogin === "email"
+        data.tipo === "email"
           ? "https://eco-nomy-sis-stable.onrender.com/empregado/login"
           : "https://eco-nomy-sis-stable.onrender.com/empresa/login";
 
@@ -53,7 +53,7 @@ export default function Login() {
           "x-api-key": "chave-primaria",
         },
         body: JSON.stringify({
-          login: data.email, // email ou cnpj
+          login: data.login,
           senha: data.senha,
         }),
       });
@@ -61,17 +61,15 @@ export default function Login() {
       if (!resp.ok) throw new Error("Erro ao autenticar usuário.");
 
       const usuario: Usuario = await resp.json();
-      console.log("Resposta da API:", usuario);
 
       if (usuario.token) {
         localStorage.setItem("authToken", usuario.token);
         localStorage.setItem("userId", usuario.userId.toString());
-        localStorage.setItem("tipoLogin", tipoLogin!);
+        localStorage.setItem("tipoLogin", data.tipo);
 
         setExibeLoginNaoEncontrado(false);
 
-        // Redireciona conforme tipo de login
-        if (tipoLogin === "email") {
+        if (data.tipo === "email") {
           navigate("/trabalhadores");
         } else {
           navigate("/empresas");
@@ -95,121 +93,122 @@ export default function Login() {
         <div className="justify-center gap-4 mb-6">
           <button
             type="button"
-            onClick={() => {
-              setTipoLogin("email");
-              reset();
-            }}
+            onClick={() => reset({ login: "", senha: "", tipo: "email" })}
             className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full"
           >
             Login Trabalhador
           </button>
           <button
             type="button"
-            onClick={() => {
-              setTipoLogin("cnpj");
-              reset();
-            }}
+            onClick={() => reset({ login: "", senha: "", tipo: "cnpj" })}
             className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full mt-4"
           >
             Login Empresa
           </button>
+          <div className="mt-6 text-center">
+            <button
+              type="button"
+              onClick={() => navigate("/cadastro")}
+              className="cursor-pointer w-full text-[var(--c-text)] py-2 rounded-md hover:underline transition-colors"
+            >
+              Não tem conta? Cadastre-se aqui
+            </button>
+          </div>
         </div>
 
-        {tipoLogin && (
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div>
-              <label
-                htmlFor="login"
-                className="block text-sm font-medium mb-1 text-[#194737]"
-              >
-                {tipoLogin === "email" ? "Email" : "CNPJ"}
-              </label>
-              <input
-                type="text"
-                id="login"
-                placeholder={
-                  tipoLogin === "email"
-                    ? "Digite seu email"
-                    : "Digite seu CNPJ (somente números)"
-                }
-                maxLength={tipoLogin === "email" ? 60 : 14}
-                {...register("email", {
-                  required: `${tipoLogin === "email" ? "Email" : "CNPJ"} é obrigatório.`,
-                  validate: (value) => {
-                    if (tipoLogin === "email") {
-                      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                      return regexEmail.test(value) || "Email inválido.";
-                    } else {
-                      const regexCNPJ = /^\d{14}$/;
-                      return regexCNPJ.test(value) || "CNPJ inválido (14 dígitos).";
-                    }
-                  },
-                })}
-                onInput={(e) => {
-                  if (tipoLogin === "cnpj") {
-                    e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div>
+            <label
+              htmlFor="login"
+              className="block text-sm font-medium mb-1 text-[#194737]"
+            >
+              {watch("tipo") === "email" ? "Email" : "CNPJ"}
+            </label>
+            <input
+              type="text"
+              id="login"
+              placeholder={
+                watch("tipo") === "email"
+                  ? "Digite seu email"
+                  : "Digite seu CNPJ (somente números)"
+              }
+              maxLength={watch("tipo") === "email" ? 60 : 14}
+              {...register("login", {
+                required: `${watch("tipo") === "email" ? "Email" : "CNPJ"} é obrigatório.`,
+                validate: (value) => {
+                  if (watch("tipo") === "email") {
+                    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return regexEmail.test(value) || "Email inválido.";
+                  } else {
+                    const regexCNPJ = /^\d{14}$/;
+                    return regexCNPJ.test(value) || "CNPJ inválido (14 dígitos).";
                   }
-                }}
+                },
+              })}
+              onInput={(e) => {
+                if (watch("tipo") === "cnpj") {
+                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+                }
+              }}
+              className={`w-full px-4 py-2 rounded-md bg-white border ${
+                errors.login ? "border-red-500" : "border-gray-300"
+              } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
+            />
+            {errors.login && (
+              <p className="text-red-500 text-sm mt-1">{errors.login.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="senha"
+              className="block text-sm font-medium mb-1 text-[#194737]"
+            >
+              Senha
+            </label>
+            <div className="relative">
+              <input
+                type={mostrarSenha ? "text" : "password"}
+                id="senha"
+                placeholder="Digite sua senha"
+                maxLength={100}
+                {...register("senha", {
+                  required: "Senha é obrigatória.",
+                })}
                 className={`w-full px-4 py-2 rounded-md bg-white border ${
-                  errors.email ? "border-red-500" : "border-gray-300"
+                  errors.senha ? "border-red-500" : "border-gray-300"
                 } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
               />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="senha"
-                className="block text-sm font-medium mb-1 text-[#194737]"
+              <button
+                type="button"
+                onClick={() => setMostrarSenha((prev) => !prev)}
+                className="cursor-pointer absolute right-3 top-2 p-1"
+                aria-label="Mostrar ou ocultar senha"
               >
-                Senha
-              </label>
-              <div className="relative">
-                <input
-                  type={mostrarSenha ? "text" : "password"}
-                  id="senha"
-                  placeholder="Digite sua senha"
-                  maxLength={100}
-                  {...register("senha", {
-                    required: "Senha é obrigatória.",
-                  })}
-                  className={`w-full px-4 py-2 rounded-md bg-white border ${
-                    errors.senha ? "border-red-500" : "border-gray-300"
-                  } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
-                />
-                <button
-                  type="button"
-                  onClick={() => setMostrarSenha((prev) => !prev)}
-                  className="cursor-pointer absolute right-3 top-2 p-1"
-                  aria-label="Mostrar ou ocultar senha"
-                >
-                  👁
-                </button>
-              </div>
-              {errors.senha && (
-                <p className="text-red-500 text-sm mt-1">{errors.senha.message}</p>
-              )}
+                👁
+              </button>
             </div>
-
-            <button
-              type="submit"
-              id="botaoLogin"
-              className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
-            >
-              Fazer Login
-            </button>
-
-            {exibeLoginNaoEncontrado && (
-              <p className="text-red-500 text-sm mt-4 text-center">
-                {tipoLogin === "email"
-                  ? "Email ou senha incorretos!"
-                  : "CNPJ ou senha incorretos!"}
-              </p>
+            {errors.senha && (
+              <p className="text-red-500 text-sm mt-1">{errors.senha.message}</p>
             )}
-          </form>
-        )}
+          </div>
+
+          <button
+            type="submit"
+            id="botaoLogin"
+            className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
+          >
+            Fazer Login
+          </button>
+
+          {exibeLoginNaoEncontrado && (
+            <p className="text-red-500 text-sm mt-4 text-center">
+              {watch("tipo") === "email"
+                ? "Email ou senha incorretos!"
+                : "CNPJ ou senha incorretos!"}
+            </p>
+          )}
+        </form>
       </div>
     </main>
   );

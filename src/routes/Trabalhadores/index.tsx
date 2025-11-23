@@ -8,23 +8,20 @@ export default function Funcionarios() {
     document.title = "Trabalhadores";
   }, []);
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (!token) {
-      navigate("/login");
-    }
-  }, [navigate]);
-
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
   };
 
   return (
-    <main className="bg-white min-h-screen flex items-center justify-center p-6">
-      <section className="w-full max-w-md bg-white p-6 rounded-lg shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-[#194737] mb-4">
+    <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center p-6">
+      <section className="bg-[var(--c-bg)] text-[var(--c-text)] w-full max-w-md p-6 rounded-lg shadow-md space-y-4 text-center">
+        <h2 className="text-2xl font-bold text-[var(--c-text)] mb-4">
           Trabalhadores
+        </h2>
+
+        <h2 className="text-2xl p-4 rounded font-bold bg-[var(--c-bg1)] text-white mb-4 hover:bg-[var(--c-bg2)]">
+<Link to='/trabalhos'>Ver propóstas de trabalhos</Link>
         </h2>
 
         <button
