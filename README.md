@@ -68,7 +68,157 @@ https://eco-nomy.vercel.app/
 
 ## Estrutura de Pastas
 
-`utilizar tree`
+```
+eco-nomy
+│
+│   .gitignore
+│   eslint.config.js
+│   index.html
+│   package-lock.json
+│   package.json
+│   README.md
+│   tsconfig.app.json
+│   tsconfig.json
+│   tsconfig.node.json
+│   vercel.json
+│   vite.config.ts
+│
+├───public
+│   └───img
+│           logo-arvore.png
+│
+└───src
+    │   App.tsx
+    │   global.css
+    │   main.tsx
+    │
+    ├───components
+    │   ├───AcessoRapido
+    │   │       AcessoRapido.tsx
+    │   │
+    │   ├───Cabecalho
+    │   │       Cabecalho.tsx
+    │   │
+    │   ├───CardEmpresa
+    │   │       CardEmpresa.tsx
+    │   │
+    │   ├───CardPergunta
+    │   │       CardPergunta.tsx
+    │   │
+    │   ├───FaqLista
+    │   │       FaqLista.tsx
+    │   │
+    │   ├───ListaEmpresas
+    │   │       ListaEmpresas.tsx
+    │   │
+    │   ├───ListaPropostas
+    │   │       ListaPropostas.tsx
+    │   │
+    │   ├───ListaTrabalhos
+    │   │       ListaTrabalhos.tsx
+    │   │
+    │   ├───Menu
+    │   │       Menu.tsx
+    │   │
+    │   ├───PropostaCard
+    │   │       PropostaCard.tsx
+    │   │
+    │   └───Rodape
+    │           Rodape.tsx
+    │
+    ├───context
+    │       ThemeContext.tsx
+    │
+    ├───data
+    │       listaFaq.ts
+    │
+    ├───img
+    │   │   impacto.jpg
+    │   │   inovacao.jpg
+    │   │   logo.png
+    │   │   rafael-kubagawa-ramos.jpg
+    │   │   sustentabilidade.jpg
+    │   │   victor-sabelli.jpg
+    │   │   vinicius-soteras-braga.jpg
+    │   │
+    │   ├───icone
+    │   │       facebook.png
+    │   │       github.png
+    │   │       instagram.png
+    │   │       linkedin-og.png
+    │   │       linkedin.png
+    │   │       login.png
+    │   │       mail.png
+    │   │       render.png
+    │   │       telefone.png
+    │   │       telegram.png
+    │   │       tiktok.png
+    │   │       whats.png
+    │   │       x.png
+    │   │
+    │   └───screenshots
+    │           cadastro.jpg
+    │           empresas.jpg
+    │           home.jpg
+    │           homedark.jpg
+    │           hub.jpg
+    │           hubdark.jpg
+    │           login.jpg
+    │           trabalhos.jpg
+    │
+    ├───routes
+    │   ├───Cadastro
+    │   │       index.tsx
+    │   │
+    │   ├───Contato
+    │   │       index.tsx
+    │   │
+    │   ├───Contratacao
+    │   │       index.tsx
+    │   │
+    │   ├───Empresas
+    │   │       index.tsx
+    │   │
+    │   ├───Error
+    │   │       index.tsx
+    │   │
+    │   ├───Home
+    │   │       index.tsx
+    │   │
+    │   ├───Hub
+    │   │       index.tsx
+    │   │
+    │   ├───Integrantes
+    │   │       index.tsx
+    │   │
+    │   ├───Login
+    │   │       index.tsx
+    │   │
+    │   ├───Perguntas
+    │   │       index.tsx
+    │   │       
+    │   ├───PropostaDetalhes
+    │   │       index.tsx
+    │   │
+    │   ├───Sobre
+    │   │       index.tsx
+    │   │
+    │   ├───Trabalhadores
+    │   │       index.tsx
+    │   │
+    │   └───Trabalhos
+    │           index.tsx
+    │
+    └───types
+            cadastro.ts
+            cardFaq.ts
+            empresa.ts
+            formData.ts
+            loginFormData.ts
+            proposta.ts
+            tipoFaq.ts
+            usuario.ts
+```
 
 ## Rotas Principais
 
