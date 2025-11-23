@@ -108,14 +108,14 @@ export default function Login() {
 
   return (
     <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md bg-[var(--c-bg)] p-6 rounded-lg shadow-md">
+      <div className="w-full max-w-md bg-[var(--c-bg6)] p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">
           Login
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label htmlFor="login" className="block text-sm font-medium mb-1 text-[#194737]">
+            <label htmlFor="login" className="block text-sm font-medium mb-1 text-[var(--c-text)]">
               Email ou CNPJ
             </label>
             <input
@@ -133,7 +133,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label htmlFor="senha" className="block text-sm font-medium mb-1 text-[#194737]">
+            <label htmlFor="senha" className="block text-sm font-medium mb-1 text-[var(--c-text)]">
               Senha
             </label>
             <div className="relative">
