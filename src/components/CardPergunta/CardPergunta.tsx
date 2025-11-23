@@ -15,10 +15,7 @@ export default function CardPergunta({ faq }: { faq: TipoFaq }) {
 
       {aberto && (
         <div className="mt-2 text-sm text-white font-normal space-y-1">
-          <p><strong>Pergunta:</strong> {faq.corpo}</p>
-          <p><strong>Autor da pergunta:</strong> {faq.autorDaPergunta}</p>
-          <p><strong>Autor da resposta:</strong> {faq.autorDaResposta}</p>
-          <p><strong>Data da resposta:</strong> {new Date(faq.data_resposta).toLocaleDateString()}</p>
+          <p>{faq.corpo}</p>
         </div>
       )}
     </div>
