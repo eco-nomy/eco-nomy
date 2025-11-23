@@ -3,15 +3,20 @@
 :root {
   --c-primary: #2e7c10;
   --c-primary-light: #71bd5a;
-  --c-primary-soft: #8ae06e;
+  --c-primary-soft: #84cc6c;
   --c-dark: #414141;
   --c-deep: #0b521f;
   --c-bg: #ffffff;
   --c-bg1: #2e7c10;
   --c-bg2: #0b521f;
-  --c-text: #414141;
+  --c-bg3: #2e7c10;
+  --c-bg4: #ffffff;
+ --c-bg5: #84cc6c;
+ --c-bg6: #ffffff;
+  --c-text: #0b521f;
   --c-text1: #0b521f;
   --c-text2: #ffffff;
+  --c-text3: #0b521f;
 }
 
 .dark {
@@ -20,12 +25,17 @@
   --c-primary-soft: #2e7c10;
   --c-dark: #ffffff;
   --c-deep: #8ae06e;
-  --c-bg: #0b521f;
+  --c-bg: #000000;
   --c-bg1: #2e7c10;
-  --c-bg2: #0b521f;
+  --c-bg2: #292929;
+  --c-bg3: #292929;
+  --c-bg4: #ffffff;
+ --c-bg5: #84cc6c;
+--c-bg6: #414141;
   --c-text: #ffffff;
   --c-text1: #0b521f;
   --c-text2: #ffffff;
+  --c-text3: #ffffff;
 }
 
 body {

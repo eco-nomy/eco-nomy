@@ -15,7 +15,7 @@ export default function Contato() {
   }, []);
 
   return (
-    <main className="bg-white text-[#0b521f]">
+    <main className="bg-[var(--c-bg)] text-[var(--c-text3)]">
       <section id="contato" className="max-w-6xl mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-12">Entre em Contato</h1>
         <p className="text-center text-lg max-w-2xl mx-auto mb-12">
@@ -57,19 +57,19 @@ export default function Contato() {
           <h2 className="text-2xl font-semibold text-center mb-8">Fale Conosco</h2>
           <ul className="space-y-6 text-center">
             <li>
-              <p className="inline-flex items-center gap-3 justify-center text-[#0b521f] px-6 py-3 rounded-lg transition cursor-default">
+              <p className="text-[var(--c-text)] inline-flex items-center gap-3 justify-center px-6 py-3 rounded-lg transition cursor-default">
                 <img src={email} alt="Ícone de E-mail" className="w-6 h-6" />
-                saudeamiga@email.com
+                economy@email.com
               </p>
             </li>
             <li>
-              <p className="inline-flex items-center gap-3 justify-center text-[#0b521f] px-6 py-3 rounded-lg transition cursor-default">
+              <p className="text-[var(--c-text)] inline-flex items-center gap-3 justify-center px-6 py-3 rounded-lg transition cursor-default">
                 <img src={tel} alt="Ícone de Telefone" className="w-6 h-6" />
                 (11) 4444-4444
               </p>
             </li>
             <li>
-              <p className="inline-flex items-center gap-3 justify-center text-[#0b521f] px-6 py-3 rounded-lg transition cursor-default">
+              <p className="text-[var(--c-text)] inline-flex items-center gap-3 justify-center px-6 py-3 rounded-lg transition cursor-default">
                 <img src={whats} alt="Ícone de WhatsApp" className="w-6 h-6" />
                 (11) 99999-9999
               </p>

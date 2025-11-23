@@ -33,19 +33,19 @@ export default function Menu() {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden z-50 px-4 py-2 bg-[#0b521f] text-white rounded-md shadow-md hover:bg-[#2e7c10] transition"
+                className="lg:hidden z-50 px-4 py-2 bg-[var(--c-bg)] text-[var(--c-text)] rounded-md shadow-md hover:bg-[#2e7c10] transition"
             >
                 Menu ▼
             </button>
 
             {isOpen && (
-                <div className="lg:hidden absolute right-0 mt-2 w-48 bg-[#0b521f] text-white rounded-md shadow-lg border border-[#414141]">
+                <div className="lg:hidden absolute right-0 mt-2 w-48 bg-[var(--c-bg)] text-[var(--c-text)] rounded-md shadow-lg border border-[#414141]">
                     <nav className="flex flex-col p-4 space-y-2">
                         <Link to="/" className="hover:text-[#2e7c10] transition">Home</Link>
                         <Link to="/integrantes" className="hover:text-[#2e7c10] transition">Integrantes</Link>
                         <Link to="/sobre" className="hover:text-[#2e7c10] transition">Sobre</Link>
                         <Link to="/perguntas" className="hover:text-[#2e7c10] transition">FAQ</Link>
-                        <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub De Colaboração</Link>
+                        <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub de Colaboração</Link>
                         <Link to="/trabalhos" className="hover:text-[#2e7c10] transition">Trabalhos</Link>
                         <Link to="/contratacao" className="hover:text-[#2e7c10] transition">Vagas</Link>
                         <Link to="/contato" className="hover:text-[#2e7c10] transition">Contato</Link>
@@ -53,12 +53,12 @@ export default function Menu() {
                 </div>
             )}
 
-            <div className="hidden lg:flex space-x-6 bg-[#0b521f] text-white px-6 py-3 rounded-md shadow-md">
+            <div className="hidden lg:flex space-x-6 bg-[var(--c-bg2)] text-[var(--c-text2)] px-6 py-3 rounded-md shadow-md">
                 <Link to="/" className="hover:text-[#2e7c10] transition">Home</Link>
                 <Link to="/integrantes" className="hover:text-[#2e7c10] transition">Integrantes</Link>
                 <Link to="/sobre" className="hover:text-[#2e7c10] transition">Sobre</Link>
                 <Link to="/perguntas" className="hover:text-[#2e7c10] transition">FAQ</Link>
-                <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub De Colaboração</Link>
+                <Link to="/hub" className="hover:text-[#2e7c10] transition">Hub de Colaboração</Link>
                 <Link to="/trabalhos" className="hover:text-[#2e7c10] transition">Trabalhos</Link>
                 <Link to="/contratacao" className="hover:text-[#2e7c10] transition">Vagas</Link>
                 <Link to="/contato" className="hover:text-[#2e7c10] transition">Contato</Link>

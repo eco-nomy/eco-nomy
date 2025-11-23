@@ -11,12 +11,12 @@ export default function FaqLista() {
   }, []);
 
   return (
-    <section className="w-full max-w-screen px-4 py-6 text-[#194737] text-center overflow-hidden">
+    <section className="w-full max-w-screen px-4 py-6 text-[var(--c-text3)] text-center overflow-hidden">
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-6">
         Perguntas Frequentes
       </h2>
 
-      <div className="flex flex-col items-center gap-4 w-full">
+      <div className="bg-[var(--c-bg)] text-[var(--c-text)] flex flex-col items-center gap-4 w-full">
         {perguntas.map((faq) => (
           <div key={faq.id} className="w-full max-w-[95vw] sm:max-w-md">
             <CardFaq faq={faq} />
