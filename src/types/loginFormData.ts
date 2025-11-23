@@ -1,18 +1,31 @@
-// Union Type para tipo de login
+// src/types/loginFormData.ts
+
 export type TipoLogin = "email" | "cnpj";
 
-// Formulário de login
 export type LoginFormData = {
-  login: string; // pode ser email ou cnpj
+  login: string;   // email ou cnpj
   senha: string;
-  tipo: TipoLogin;
 };
 
-// Usuário retornado pela API
-export type Usuario = {
-  userId: number;
-  token: string;
+export type Trabalhador = {
+  empregadoId: number;
+  cpf: string;
+  nome: string;
   email: string;
-  senha: string;
-  funcionario: boolean;
+  saldo: number;
+  dataCriacao: string; // vindo do backend
+  token?: string;
+  funcionario: true;
 };
+
+export type EmpresaUsuario = {
+  id: number;
+  nome: string;
+  cnpj: string;
+  saldo: number;
+  dataCriacao: string; // <-- confirmar se backend envia!
+  token?: string;
+  funcionario: false;
+};
+
+export type Usuario = Trabalhador | EmpresaUsuario;

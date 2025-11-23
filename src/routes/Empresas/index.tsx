@@ -1,3 +1,4 @@
+// src/pages/empresas.tsx
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -6,87 +7,96 @@ import type { Proposta } from "../../types/proposta";
 export default function Empresas() {
   const navigate = useNavigate();
   const [propostas, setPropostas] = useState<Proposta[]>([]);
-  const [editando, setEditando] = useState<Proposta | null>(null);
+  const [atualizar, setAtualizar] = useState(false);
 
-  const empresaId = Number(localStorage.getItem("userId"));
-
+  const empresaId = Number(localStorage.getItem("empresaId"));
   const { register, handleSubmit, reset } = useForm<Proposta>();
 
   useEffect(() => {
     document.title = "Empresas";
     carregarPropostas();
-  }, []);
+  }, [atualizar]);
 
-  // Carregar propostas da empresa logada
   const carregarPropostas = async () => {
     try {
-      const resp = await fetch("https://eco-nomy-sis-stable.onrender.com/proposta", {
+      const resp = await fetch("https://eco-nomy-sis-stable-524v.onrender.com/proposta", {
         headers: { "x-api-key": "chave-primaria" },
       });
       const data: Proposta[] = await resp.json();
-      setPropostas(data.filter((p) => p.empresa_id === empresaId));
+
+      const normalizado = data.map((p) => ({
+        ...p,
+        status: !p.status ? "Aberta" : p.status,
+      }));
+
+      setPropostas(normalizado.filter((p) => p.empresaId === empresaId));
     } catch (err) {
-      console.error(err);
+      console.error("Erro ao carregar propostas:", err);
     }
   };
 
-  // Criar ou atualizar proposta
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: Proposta) => {
     try {
-      const payload = {
-        ...data,
-        empresa_id: empresaId,
-        longoPrazo: data.longoPrazo === true || data.longoPrazo === "true",
+      const payload: any = {
+        empresaId,
+        descricao: data.descricao,
+        valor: Number(data.valor),
+        dataCriacao: new Date().toISOString(),
+        isLongoPrazo: Boolean(data.longoPrazo),
+        status: "Aberta",
       };
 
-      if (editando) {
-        // Atualizar proposta existente
-        await fetch(`https://eco-nomy-sis-stable.onrender.com/proposta/${editando.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": "chave-primaria",
-          },
-          body: JSON.stringify(payload),
-        });
-        alert("Proposta atualizada com sucesso!");
-      } else {
-        // Criar nova proposta
-        await fetch("https://eco-nomy-sis-stable.onrender.com/proposta", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": "chave-primaria",
-          },
-          body: JSON.stringify(payload),
-        });
-        alert("Proposta criada com sucesso!");
+      const resp = await fetch("https://eco-nomy-sis-stable-524v.onrender.com/proposta", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "chave-primaria",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const texto = await resp.text();
+      if (!resp.ok) {
+        console.error("POST /proposta erro:", resp.status, texto);
+        alert(`Erro ao criar proposta (${resp.status}): ${texto}`);
+        return;
       }
 
+      alert("Proposta criada com sucesso!");
       reset();
-      setEditando(null);
-      carregarPropostas();
-    } catch (err) {
-      console.error(err);
-      alert("Erro ao salvar proposta!");
+      setAtualizar((prev) => !prev);
+    } catch (err: any) {
+      console.error("Erro ao salvar proposta:", err?.message ?? err);
+      alert("Erro ao salvar proposta! Veja o console para detalhes.");
     }
   };
 
-  // Excluir proposta
   const excluirProposta = async (id: number) => {
     if (!confirm("Tem certeza que deseja excluir esta proposta?")) return;
     try {
-      await fetch(`https://eco-nomy-sis-stable.onrender.com/proposta/${id}`, {
-        method: "DELETE",
-        headers: {
-          "x-api-key": "chave-primaria",
-        },
-      });
+      const resp = await fetch(
+        `https://eco-nomy-sis-stable-524v.onrender.com/proposta/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "chave-primaria",
+          },
+        }
+      );
+
+      const texto = await resp.text();
+      if (!resp.ok) {
+        console.error("DELETE /proposta erro:", resp.status, texto);
+        alert(`Erro ao excluir proposta (${resp.status}): ${texto}`);
+        return;
+      }
+
       alert("Proposta excluída com sucesso!");
-      carregarPropostas();
-    } catch (err) {
-      console.error(err);
-      alert("Erro ao excluir proposta!");
+      setAtualizar((prev) => !prev);
+    } catch (err: any) {
+      console.error("Erro ao excluir proposta:", err?.message ?? err);
+      alert("Erro ao excluir proposta! Veja o console para detalhes.");
     }
   };
 
@@ -96,9 +106,9 @@ export default function Empresas() {
   };
 
   return (
-    <main className="bg-white min-h-screen flex flex-col items-center p-6">
-      <section className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md space-y-4">
-        <h2 className="text-2xl font-bold text-[#194737] mb-4">Área da Empresa</h2>
+    <main className="bg-[var(--c-bg)] min-h-screen flex flex-col items-center p-6">
+      <section className="bg-[var(--c-bg6)] w-full max-w-2xl p-6 rounded-lg shadow-md space-y-4">
+        <h2 className="text-2xl font-bold text-[var(--c-text3)] mb-4">Área da Empresa</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <input
@@ -114,15 +124,15 @@ export default function Empresas() {
             className="w-full border px-3 py-2 rounded"
           />
           <label className="flex items-center gap-2">
-            <input type="checkbox" {...register("longoPrazo")} />
+            <input type="checkbox" className="cursor-pointer" {...register("longoPrazo")} />
             É longo prazo?
           </label>
 
           <button
             type="submit"
-            className="w-full bg-[#29966a] text-white py-2 rounded hover:bg-[#194737]"
+            className="cursor-pointer w-full bg-[#29966a] text-white py-2 rounded hover:bg-[#194737]"
           >
-            {editando ? "Salvar Alterações" : "Criar Proposta"}
+            Criar Proposta
           </button>
         </form>
 
@@ -143,17 +153,13 @@ export default function Empresas() {
                     <p className="text-xs text-gray-500">
                       Criado em {new Date(p.dataCriacao).toLocaleDateString()}
                     </p>
+                    <p className="text-xs">Status: {p.status ?? "Aberta"}</p>
+                    <p className="text-xs">
+                      {p.longoPrazo ? "Longo prazo" : "Curto prazo"}
+                    </p>
+                    <p className="text-xs">ID: {p.id}</p>
                   </div>
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        setEditando(p);
-                        reset(p);
-                      }}
-                      className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-800"
-                    >
-                      Editar
-                    </button>
                     <button
                       onClick={() => excluirProposta(p.id)}
                       className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-800"

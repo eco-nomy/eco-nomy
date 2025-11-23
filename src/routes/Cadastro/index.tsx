@@ -1,50 +1,19 @@
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import type { CadastroEmpresa, CadastroEmpregado } from "../../types/cadastro";
 import { useNavigate } from "react-router-dom";
-
-type CadastroFormData = {
-    email: string;
-    senha: string;
-    confirmaSenha: string;
-    nome?: string;
-    cnpj?: string;
-};
 
 export default function Cadastro() {
     const navigate = useNavigate();
-    const [mostrarSenha, setMostrarSenha] = useState(false);
-    const [tipoCadastro, setTipoCadastro] = useState<"email" | "cnpj" | null>(null);
+    const [tipoSelecionado, setTipoSelecionado] = useState<"empresa" | "empregado">("empresa");
+    const [erroCadastro, setErroCadastro] = useState<string | null>(null);
 
-    useEffect(() => {
-        document.title = "Cadastro de Usuários";
-    }, []);
+    const formEmpresa = useForm<CadastroEmpresa>();
+    const formEmpregado = useForm<Omit<CadastroEmpregado, "saldo" | "dataCriacao">>();
 
-    const {
-        handleSubmit,
-        register,
-        formState: { errors },
-        reset,
-        watch,
-    } = useForm<CadastroFormData>({
-        mode: "onChange",
-        reValidateMode: "onChange",
-        defaultValues: {
-            email: "",
-            senha: "",
-            confirmaSenha: "",
-            nome: "",
-            cnpj: "",
-        },
-    });
-
-    const onSubmit = async (data: CadastroFormData) => {
+    const aoEnviarEmpresa = async (data: CadastroEmpresa) => {
         try {
-            const endpoint =
-                tipoCadastro === "email"
-                    ? "https://eco-nomy-sis-stable.onrender.com/empregado/cadastro"
-                    : "https://eco-nomy-sis-stable.onrender.com/empresa/cadastro";
-
-            const resp = await fetch(endpoint, {
+            const resposta = await fetch("https://eco-nomy-sis-stable-524v.onrender.com/empresa", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -53,175 +22,209 @@ export default function Cadastro() {
                 body: JSON.stringify(data),
             });
 
-            if (!resp.ok) throw new Error("Erro ao cadastrar usuário.");
+            if (!resposta.ok) {
+                setErroCadastro("Erro ao cadastrar empresa.");
+                return;
+            }
 
-            alert("Cadastro realizado com sucesso!");
+            alert("Empresa cadastrada com sucesso!");
+            formEmpresa.reset();
             navigate("/login");
-        } catch (error) {
-            console.error("Erro no cadastro:", error);
-            alert("Erro no processo de cadastro!");
+        } catch {
+            setErroCadastro("Erro de conexão com o servidor.");
+        }
+    };
+
+    const aoEnviarEmpregado = async (data: Omit<CadastroEmpregado, "saldo" | "dataCriacao">) => {
+        try {
+            const payload: CadastroEmpregado = {
+                ...data,
+                saldo: 0,
+                dataCriacao: new Date().toISOString(),
+            };
+
+            const resposta = await fetch("https://eco-nomy-sis-stable-524v.onrender.com/empregado", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": "chave-primaria",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!resposta.ok) {
+                setErroCadastro("Erro ao cadastrar empregado.");
+                return;
+            }
+
+            alert("Empregado cadastrado com sucesso!");
+            formEmpregado.reset();
+            navigate("/login");
+        } catch {
+            setErroCadastro("Erro de conexão com o servidor.");
         }
     };
 
     return (
-        <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-200 flex items-center justify-center px-4 py-10">
-            <div className="w-full max-w-md bg-[var(--c-bg)] p-6 rounded-lg shadow-md">
+        <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center px-4 py-10">
+            <div className="w-full max-w-md bg-[var(--c-bg6)] p-6 rounded-lg shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center text-[var(--c-text)]">
-                    Escolha tipo de cadastro
+                    Cadastro
                 </h1>
 
-                <div className="justify-center gap-4 mb-6">
+                <div className="flex justify-center gap-4 mb-6">
                     <button
                         type="button"
-                        onClick={() => {
-                            setTipoCadastro("email");
-                            reset();
-                        }}
-                        className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full"
+                        onClick={() => setTipoSelecionado("empresa")}
+                        className={`px-4 py-2 rounded-md ${tipoSelecionado === "empresa"
+                                ? "bg-[var(--c-bg1)] text-[var(--c-text2)]"
+                                : "bg-gray-200 text-gray-700"
+                            }`}
                     >
-                        Cadastro Trabalhador
+                        Empresa
                     </button>
                     <button
                         type="button"
-                        onClick={() => {
-                            setTipoCadastro("cnpj");
-                            reset();
-                        }}
-                        className="cursor-pointer bg-[var(--c-bg1)] text-[var(--c-text2)] px-4 py-2 rounded hover:bg-[var(--c-bg2)] w-full mt-4"
+                        onClick={() => setTipoSelecionado("empregado")}
+                        className={`px-4 py-2 rounded-md ${tipoSelecionado === "empregado"
+                                ? "bg-[var(--c-bg1)] text-[var(--c-text2)]"
+                                : "bg-gray-200 text-gray-700"
+                            }`}
                     >
-                        Cadastro Empresa
+                        Empregado
                     </button>
                 </div>
 
-                {tipoCadastro && (
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {tipoSelecionado === "empresa" && (
+                    <form onSubmit={formEmpresa.handleSubmit(aoEnviarEmpresa)} className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-1 text-[#194737]">
-                                Nome
-                            </label>
+                            <label className="block text-sm font-medium mb-1">Nome da empresa</label>
                             <input
                                 type="text"
-                                placeholder="Digite seu nome"
-                                {...register("nome", { required: "Nome é obrigatório." })}
-                                className={`w-full px-4 py-2 rounded-md bg-white border ${errors.nome ? "border-red-500" : "border-gray-300"
-                                    } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
+                                {...formEmpresa.register("nome", { required: "Nome é obrigatório." })}
+                                className="w-full px-4 py-2 rounded-md border"
                             />
-                            {errors.nome && (
-                                <p className="text-red-500 text-sm mt-1">{errors.nome.message}</p>
+                            {formEmpresa.formState.errors.nome && (
+                                <p className="text-red-500 text-sm">{formEmpresa.formState.errors.nome.message}</p>
                             )}
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-1 text-[#194737]">
-                                {tipoCadastro === "email" ? "Email" : "CNPJ"}
-                            </label>
+                            <label className="block text-sm font-medium mb-1">CNPJ</label>
                             <input
                                 type="text"
-                                placeholder={
-                                    tipoCadastro === "email"
-                                        ? "Digite seu email"
-                                        : "Digite seu CNPJ (somente números)"
-                                }
-                                maxLength={tipoCadastro === "email" ? 60 : 14}
-                                {...register("email", {
-                                    required: `${tipoCadastro === "email" ? "Email" : "CNPJ"} é obrigatório.`,
-                                    validate: (value) => {
-                                        if (tipoCadastro === "email") {
-                                            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                            return regexEmail.test(value) || "Email inválido.";
-                                        } else {
-                                            const regexCNPJ = /^\d{14}$/;
-                                            return regexCNPJ.test(value) || "CNPJ inválido (14 dígitos).";
-                                        }
-                                    },
+                                {...formEmpresa.register("cnpj", {
+                                    required: "CNPJ é obrigatório.",
+                                    validate: (value) =>
+                                        value.replace(/\D/g, "").length === 14 || "CNPJ deve ter 14 números.",
                                 })}
-                                onInput={(e) => {
-                                    if (tipoCadastro === "cnpj") {
-                                        e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
-                                    }
+                                onChange={(e) => {
+                                    const onlyNumbers = e.target.value.replace(/\D/g, "");
+                                    formEmpresa.setValue("cnpj", onlyNumbers);
                                 }}
-                                className={`w-full px-4 py-2 rounded-md bg-white border ${errors.email ? "border-red-500" : "border-gray-300"
-                                    } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
+                                className="w-full px-4 py-2 rounded-md border"
                             />
-                            {errors.email && (
-                                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                            {formEmpresa.formState.errors.cnpj && (
+                                <p className="text-red-500 text-sm">{formEmpresa.formState.errors.cnpj.message}</p>
                             )}
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-1 text-[#194737]">
-                                Senha
-                            </label>
-                            <div className="relative">
-                                <input
-                                    type={mostrarSenha ? "text" : "password"}
-                                    placeholder="Digite sua senha"
-                                    {...register("senha", { required: "Senha é obrigatória." })}
-                                    className={`w-full px-4 py-2 rounded-md bg-white border ${errors.senha ? "border-red-500" : "border-gray-300"
-                                        } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => setMostrarSenha((prev) => !prev)}
-                                    className="cursor-pointer absolute right-3 top-2 p-1"
-                                    aria-label="Mostrar ou ocultar senha"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={1.5}
-                                        stroke="#194737"
-                                        className="w-5 h-5"
-                                    >
-                                        {mostrarSenha ? (
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
-                                            />
-                                        ) : (
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M3 3l18 18M9.88 9.88a3.75 3.75 0 004.24 4.24M6.75 6.75C4.5 8.25 2.25 12 2.25 12s3.75 6.75 9.75 6.75c1.5 0 2.91-.33 4.2-.92M17.25 17.25C19.5 15.75 21.75 12 21.75 12s-3.75-6.75-9.75-6.75c-.84 0-1.65.11-2.42.31"
-                                            />
-                                        )}
-                                    </svg>
-                                </button>
-                            </div>
-                            {errors.senha && (
-                                <p className="text-red-500 text-sm mt-1">{errors.senha.message}</p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-medium mb-1 text-[#194737]">
-                                Confirmar Senha
-                            </label>
+                            <label className="block text-sm font-medium mb-1">Senha</label>
                             <input
                                 type="password"
-                                placeholder="Confirme sua senha"
-                                {...register("confirmaSenha", {
-                                    required: "Confirmação de senha é obrigatória.",
-                                    validate: (value) =>
-                                        value === watch("senha") || "As senhas não coincidem.",
-                                })}
-                                className={`w-full px-4 py-2 rounded-md bg-white border ${errors.confirmaSenha ? "border-red-500" : "border-gray-300"
-                                    } text-[#194737] focus:outline-none focus:ring-2 focus:ring-[#29966a]`}
+                                {...formEmpresa.register("senha", { required: "Senha é obrigatória." })}
+                                className="w-full px-4 py-2 rounded-md border"
                             />
-                            {errors.confirmaSenha && (
-                                <p className="text-red-500 text-sm mt-1">{errors.confirmaSenha.message}</p>
+                            {formEmpresa.formState.errors.senha && (
+                                <p className="text-red-500 text-sm">{formEmpresa.formState.errors.senha.message}</p>
                             )}
                         </div>
 
-                        <button
-                            type="submit"
-                            className="cursor-pointer w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md hover:bg-[var(--c-bg2)] transition-colors"
-                        >
-                            Cadastrar
+                        <button type="submit" className="w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md">
+                            Cadastrar Empresa
                         </button>
                     </form>
+                )}
+
+                {/* FORM EMPREGADO */}
+                {tipoSelecionado === "empregado" && (
+                    <form onSubmit={formEmpregado.handleSubmit(aoEnviarEmpregado)} className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium mb-1">Nome completo</label>
+                            <input
+                                type="text"
+                                {...formEmpregado.register("nome", { required: "Nome é obrigatório." })}
+                                className="w-full px-4 py-2 rounded-md border"
+                            />
+                            {formEmpregado.formState.errors.nome && (
+                                <p className="text-red-500 text-sm">{formEmpregado.formState.errors.nome.message}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium mb-1">CPF</label>
+                            <input
+                                type="text"
+                                {...formEmpregado.register("cpf", {
+                                    required: "CPF é obrigatório.",
+                                    validate: (value) =>
+                                        value.replace(/\D/g, "").length === 11 || "CPF deve ter 11 números.",
+                                })}
+                                onChange={(e) => {
+                                    const onlyNumbers = e.target.value.replace(/\D/g, "");
+                                    formEmpregado.setValue("cpf", onlyNumbers);
+                                }}
+                                className="w-full px-4 py-2 rounded-md border"
+                            />
+                            {formEmpregado.formState.errors.cpf && (
+                                <p className="text-red-500 text-sm">{formEmpregado.formState.errors.cpf.message}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium mb-1">Email</label>
+                            <input
+                                type="email"
+                                {...formEmpregado.register("email", {
+                                    required: "Email é obrigatório.",
+                                    validate: (value) => value.includes("@") || "Email deve conter @",
+                                })}
+                                className="w-full px-4 py-2 rounded-md border"
+                            />
+                            {formEmpregado.formState.errors.email && (
+                                <p className="text-red-500 text-sm">{formEmpregado.formState.errors.email.message}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium mb-1">Senha</label>
+                            <input
+                                type="password"
+                                {...formEmpregado.register("senha", { required: "Senha é obrigatória." })}
+                                className="w-full px-4 py-2 rounded-md border"
+                            />
+                            {formEmpregado.formState.errors.senha && (
+                                <p className="text-red-500 text-sm">{formEmpregado.formState.errors.senha.message}</p>
+                            )}
+                        </div>
+
+                        <button type="submit" className="w-full bg-[var(--c-bg1)] text-[var(--c-text2)] py-2 rounded-md">
+                            Cadastrar Empregado
+                        </button>
+                    </form>
+                )}
+
+                <button
+                    type="button"
+                    onClick={() => navigate("/login")}
+                    className="w-full mt-3 text-[var(--c-text)] py-2 rounded-md hover:underline transition-colors"
+                >
+                    Já tem cadastro? Faça login
+                </button>
+
+                {erroCadastro && (
+                    <p className="text-red-500 text-sm mt-4 text-center">{erroCadastro}</p>
                 )}
             </div>
         </main>

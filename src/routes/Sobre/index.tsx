@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import sustentabilidade from '../../img/sustentabilidade.jpg';
+import impacto from '../../img/impacto.jpg'
+import inovacao from '../../img/inovacao.jpg'
 
 export default function Sobre() {
   useEffect(() => {
@@ -68,13 +69,13 @@ export default function Sobre() {
           </p>
         </div>
         <div className="flex-1">
-          <img src={sustentabilidade} alt="Impacto ambiental" className="rounded shadow-md"/>
+          <img src={impacto} alt="Mãos segurando um pequeno broto com terra, enquanto outra mão se aproxima em gesto de cuidado, sob luz quente do sol ao fundo." className="rounded shadow-md"/>
         </div>
       </section>
 
       <section className="flex flex-col md:flex-row items-center gap-8 p-8 max-w-5xl">
         <div className="flex-1">
-          <img src={sustentabilidade} alt="Inovação tecnológica" className="rounded shadow-md"/>
+          <img src={inovacao} alt="Quatro lâmpadas alinhadas em fundo preto, sendo que apenas a terceira está acesa e brilhando, destacando-se das outras apagadas." className="rounded shadow-md"/>
         </div>
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-[var(--c-text)]">Inovação</h2>

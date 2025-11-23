@@ -25,7 +25,7 @@ export default function ListaTrabalhos() {
         const data: Proposta[] = await response.json();
 
         const filtradas = data.filter(
-          (p) => p.longoPrazo === false && (p.empregado_id === null || p.empregado_id === undefined)
+          (p) => p.longoPrazo === false && (p.empregadoId === 0 || p.empregadoId === undefined)
         );
 
         setPropostas(filtradas);
