@@ -18,6 +18,7 @@ Versão beta disponível (MVP)
 - [Screenshots / Demonstração](#screenshots--demonstração)
 - [Contato](#contato)
 - [Fotos](#-fotos)
+- [Repositório](#repositório)
 - [Aviso](#aviso)
 
 ## Sobre o Projeto
@@ -28,6 +29,9 @@ Somos o Hub pioneiro que orquestra a cadeia de valor sustentável no Brasil. Nos
 - Um Hub de Colaboração e canal de vagas formais, conectando corporações com talentos e parceiros verdes.
 
 Nosso Core Tecnológico: Inteligência Artificial para criar o novo padrão de confiança no setor, com modelos de Precificação Ética que erradicam a subvalorização e Gestão de Risco Preditiva que assegura a segurança transacional.
+
+Se tiver interesse, também pode assistir nosso Pitch da solução no YouTube!  
+https://youtu.be/kESK9c858EA
 
 ## Tecnologias Utilizadas
 
@@ -74,11 +78,14 @@ https://eco-nomy.vercel.app/
 - "/integrantes"
 - "/trabalhos"
 - "/contratacao"
+- "/propostaDetalhes"
 - "/hub"
 - "/contato"
 - "/trabalhadores"
 - "/empresas"
 - "/login"
+- "/cadastro"
+- "/proposta/:id"
 
 ## Endpoints
 
@@ -97,6 +104,15 @@ https://www.postman.com/aviation-astronaut-85642828/global-solution-eco-nomy/req
 - Orientação e apoio dos professores da turma **1TDSPO**
 
 ## Screenshots / Demonstração
+
+[<img src="src/img/screenshots/home.jpg" width="150"/>](src/img/screenshots/home.jpg)
+[<img src="src/img/screenshots/homedark.jpg" width="150"/>](src/img/screenshots/homedark.jpg)
+[<img src="/src/img/screenshots/cadastro.jpg" width="150"/>](/src/img/screenshots/cadastro.jpg)
+[<img src="/src/img/screenshots/login.jpg" width="150"/>](/src/img/screenshots/login.jpg)
+[<img src="/src/img/screenshots/hub.jpg" width="150"/>](/src/img/screenshots/hub.jpg)
+[<img src="/src/img/screenshots/hubdark.jpg" width="150"/>](/src/img/screenshots/hubdark.jpg)
+[<img src="/src/img/screenshots/empresas.jpg" width="150"/>](/src/img/screenshots/empresas.jpg)
+[<img src="/src/img/screenshots/trabalhos.jpg" width="150"/>](/src/img/screenshots/trabalhos.jpg)
 
 link youtube
 
@@ -118,6 +134,16 @@ Victor Sabelli Rocha Batista
 
 Vinicius Soteras Braga  
 <img src="src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
+
+## Repositório
+
+**Conheça o nosso repositório:**
+
+https://github.com/eco-nomy/eco-nomy
+
+<a href="https://github.com/eco-nomy/eco-nomy" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-eco--nomy-0b521f?style=flat&logo=github" width=20%/>
+</a>
 
 ## Aviso
 
