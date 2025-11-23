@@ -141,7 +141,7 @@ export default function Empresas() {
                     <p className="font-semibold">{p.descricao}</p>
                     <p className="text-sm">R$ {p.valor.toFixed(2)}</p>
                     <p className="text-xs text-gray-500">
-                      Criado em {new Date(p.data_criacao).toLocaleDateString()}
+                      Criado em {new Date(p.dataCriacao).toLocaleDateString()}
                     </p>
                   </div>
                   <div className="flex gap-2">
