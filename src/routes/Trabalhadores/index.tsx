@@ -15,7 +15,7 @@ export default function Funcionarios() {
 
   return (
     <main className="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen flex items-center justify-center p-6">
-      <section className="bg-[var(--c-bg)] text-[var(--c-text)] w-full max-w-md p-6 rounded-lg shadow-md space-y-4 text-center">
+      <section className="bg-[var(--c-bg6)] text-[var(--c-text)] w-full max-w-md p-6 rounded-lg shadow-md space-y-4 text-center">
         <h2 className="text-2xl font-bold text-[var(--c-text)] mb-4">
           Trabalhadores
         </h2>

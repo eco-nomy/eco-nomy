@@ -106,9 +106,9 @@ export default function Empresas() {
   };
 
   return (
-    <main className="bg-white min-h-screen flex flex-col items-center p-6">
-      <section className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md space-y-4">
-        <h2 className="text-2xl font-bold text-[#194737] mb-4">Área da Empresa</h2>
+    <main className="bg-[var(--c-bg)] min-h-screen flex flex-col items-center p-6">
+      <section className="bg-[var(--c-bg6)] w-full max-w-2xl p-6 rounded-lg shadow-md space-y-4">
+        <h2 className="text-2xl font-bold text-[var(--c-text3)] mb-4">Área da Empresa</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <input
