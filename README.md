@@ -95,14 +95,14 @@ link youtube
 
 ## Fotos
 
-Rafael Kubagawa Ramos
-<img src="/src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="60"/>
+Rafael Kubagawa Ramos  
+<img src="src/img/rafael-kubagawa-ramos.jpg" alt="Foto do integrante Rafael Kubagawa Ramos - Jovem branco com cabelo preto e olhos castanhos" width="30"/>
 
-Victor Sabelli Rocha Batista
-<img src="/src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="60"/>
+Victor Sabelli Rocha Batista  
+<img src="src/img/victor-sabelli.jpg" alt="Foto do integrante Victor Sabelli Rocha Batista - Jovem branco com cabelo e olhos castanhos" width="30"/>
 
-Vinicius Soteras Braga
-<img src="/src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="60"/>
+Vinicius Soteras Braga  
+<img src="src/img/vinicius-soteras-braga.jpg" alt="Foto do integrante Vinicius Soteras Braga - Jovem branco com cabelo e olhos castanhos" width="30"/>
 
 ## Aviso
 
